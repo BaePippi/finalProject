@@ -582,6 +582,8 @@
 
 @media (max-width: 680px) {
   body {
+    /* touch-action: none; */
+    /* position: fixed; */
     max-width: 100%;
     overflow-x: hidden;
   }
@@ -642,6 +644,7 @@
   #paging {
     margin-bottom: 135px;
   }
+  
   #category {
     flex-direction: row;
     height: max-content;

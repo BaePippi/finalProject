@@ -42,6 +42,15 @@
     });
   });
 console.log($box)
+
+
+// json 가져오기 
+
+
+
+
+
+
   // 하트 토글
   for (let i = 0; i < $heart.length; i++) {
     $heart[i].addEventListener("click", (e) => {

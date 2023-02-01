@@ -27,14 +27,17 @@
       });
     }
   }
+  fetch('tag.json')
+  .then(res => res.json())
+  .then(result => getData(result))
 
-
+  
   // 카테고리 클릭
   //for문 두번 돌려야하는걸 왜 까먹었을까....
   $tag.forEach((e) => {
     e.addEventListener("click", (e) => {
       e.target.classList.toggle("tagClick", true);
-      
+      console.dir(e.target.attributes.tag.value)
       for (let i = 0; i < $tag.length; i++) {
         if (e.target != $tag[i]) {
           $tag[i].classList.toggle("textHover", false);
@@ -43,21 +46,19 @@
       }
     });
   });
-console.log($box)
-
-
-// json 가져오기 
-fetch('list.json')
-.then(res => res.json())
-.then(result => getData(result))
-// getData();
-// function getData() {
-// }
-
-function getData(data){
+  console.log($box)
   
-  console.log(data)
-}
+  
+  // json 가져오기 
+  // getData();
+  // function getData() {
+    // }
+    const data = '';
+    function getData(json){
+      console.log(json.hasOwnProperty("sad"))
+       console.log(json)
+     
+    }
 
 
 

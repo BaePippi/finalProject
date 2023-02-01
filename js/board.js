@@ -28,11 +28,13 @@
     }
   }
 
+
   // 카테고리 클릭
   //for문 두번 돌려야하는걸 왜 까먹었을까....
   $tag.forEach((e) => {
     e.addEventListener("click", (e) => {
       e.target.classList.toggle("tagClick", true);
+      
       for (let i = 0; i < $tag.length; i++) {
         if (e.target != $tag[i]) {
           $tag[i].classList.toggle("textHover", false);
@@ -45,8 +47,17 @@ console.log($box)
 
 
 // json 가져오기 
+fetch('list.json')
+.then(res => res.json())
+.then(result => getData(result))
+// getData();
+// function getData() {
+// }
 
-
+function getData(data){
+  
+  console.log(data)
+}
 
 
 

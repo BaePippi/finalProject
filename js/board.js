@@ -27,38 +27,68 @@
       });
     }
   }
-  fetch('tag.json')
-  .then(res => res.json())
-  .then(result => getData(result))
-
-  
-  // 카테고리 클릭
-  //for문 두번 돌려야하는걸 왜 까먹었을까....
-  $tag.forEach((e) => {
-    e.addEventListener("click", (e) => {
-      e.target.classList.toggle("tagClick", true);
-      console.dir(e.target.attributes.tag.value)
-      for (let i = 0; i < $tag.length; i++) {
-        if (e.target != $tag[i]) {
-          $tag[i].classList.toggle("textHover", false);
-          $tag[i].classList.toggle("tagClick", false);
-        }
-      }
-    });
-  });
-  console.log($box)
   
   
   // json 가져오기 
   // getData();
   // function getData() {
     // }
-    const data = '';
+    let data = '';
+    let clicktag = '';
+    let aa = '';
+    
+    fetch('tag.json')
+    .then(res => res.json())
+    .then(res => 
+      getData(res)
+      
+      )
+console.log(data)
+    $tag.forEach((e) => {
+      if(e.classList.contains('tagClick')){
+        clicktag = e.attributes.tag.value;
+      }
+    })
     function getData(json){
-      console.log(json.hasOwnProperty("sad"))
-       console.log(json)
-     
+      if(clicktag === 'happy') {
+        data = json.happy;
+      } else if(clicktag === 'bored'){
+        data = json.bored;
+      } else if(clicktag === 'nervous'){
+        data = json.nervous;
+      } else if(clicktag === 'lonely'){
+        data = json.lonely;
+      } else if(clicktag === 'sad'){
+        data = json.sad;
+      } else {
+        data = json.angry;
+      }
+
+      console.log(data)
     }
+    
+    
+    // 카테고리 클릭
+    //for문 두번 돌려야하는걸 왜 까먹었을까....
+    $tag.forEach((e) => {
+      e.addEventListener("click", (e) => {
+        e.target.classList.toggle("tagClick", true);
+        // console.dir(e.target.attributes.tag.value);
+        // clicktag = e.target.attributes.tag.value;
+        // console.log(clicktag)
+        
+        for (let i = 0; i < $tag.length; i++) {
+          if (e.target != $tag[i]) {
+            $tag[i].classList.toggle("textHover", false);
+            $tag[i].classList.toggle("tagClick", false);
+          }
+        }
+        getData();//여기서 json 어케 가져올지 생각해보기
+      });
+    });
+    console.log($box)
+  
+  
 
 
 

@@ -14,8 +14,8 @@
   const $cardBox = document.querySelector("#cardBox");
   const $cate = document.querySelector("#category");
   const $fillHeart = document.querySelectorAll(".fillHeart");
-  const $heart = document.querySelectorAll('.heart')
-  const $box = document.querySelectorAll('.box')
+  const $heart = document.querySelectorAll(".heart");
+  const $box = document.querySelectorAll(".box");
 
   for (let i = 0; i < $tag.length; i++) {
     if (!$tag[i].classList.contains("textHover")) {
@@ -27,78 +27,75 @@
       });
     }
   }
-  
-  
-  // json 가져오기 
+
+  // json 가져오기
   // getData();
   // function getData() {
-    // }
-    let data = '';
-    let clicktag = '';
-    let aa = '';
-    
-    fetch('tag.json')
-    .then(res => res.json())
-    .then(res => 
-      getData(res)
-      
-      )
-console.log(data)
-    $tag.forEach((e) => {
-      if(e.classList.contains('tagClick')){
-        clicktag = e.attributes.tag.value;
-      }
-    })
-    function getData(json){
-      if(clicktag === 'happy') {
-        data = json.happy;
-      } else if(clicktag === 'bored'){
-        data = json.bored;
-      } else if(clicktag === 'nervous'){
-        data = json.nervous;
-      } else if(clicktag === 'lonely'){
-        data = json.lonely;
-      } else if(clicktag === 'sad'){
-        data = json.sad;
-      } else {
-        data = json.angry;
-      }
+  // }
+  let clicktag = "";
+  let data = "";
+  let aa = "";
 
-      console.log(data)
+  fetch("tag.json")
+    .then((res) => res.json())
+    .then((res) => {
+      getData(res);
+      getData2(res);
+    });
+  $tag.forEach((e) => {
+    if (e.classList.contains("tagClick")) {
+      clicktag = e.attributes.tag.value;
     }
-    
-    
-    // 카테고리 클릭
-    //for문 두번 돌려야하는걸 왜 까먹었을까....
+  });
+  function getData(json) {
+    if (clicktag === "happy") {
+      data = json.happy;
+    } else if (clicktag === "bored") {
+      data = json.bored;
+    } else if (clicktag === "nervous") {
+      data = json.nervous;
+    } else if (clicktag === "lonely") {
+      data = json.lonely;
+    } else if (clicktag === "sad") {
+      data = json.sad;
+    } else {
+      data = json.angry;
+    }
+    console.log(data);
+    makelist(data);
+  }
+
+  // 카테고리 클릭
+  //for문 두번 돌려야하는걸 왜 까먹었을까....
+  function getData2(json) {
     $tag.forEach((e) => {
       e.addEventListener("click", (e) => {
         e.target.classList.toggle("tagClick", true);
-        // console.dir(e.target.attributes.tag.value);
-        // clicktag = e.target.attributes.tag.value;
+        clicktag = e.target.attributes.tag.value;
         // console.log(clicktag)
-        
         for (let i = 0; i < $tag.length; i++) {
           if (e.target != $tag[i]) {
             $tag[i].classList.toggle("textHover", false);
             $tag[i].classList.toggle("tagClick", false);
           }
         }
-        getData();//여기서 json 어케 가져올지 생각해보기
+        getData(json);
       });
     });
-    console.log($box)
-  
-  
+  }
+  console.log($box);
 
 
-
+  function makelist(data) {
+    
+  }
 
   // 하트 토글
   for (let i = 0; i < $heart.length; i++) {
     $heart[i].addEventListener("click", (e) => {
-        e.target.classList.toggle("displayNone");
-        $fillHeart[i].classList.toggle("displayNone");
-      })
+      e.target.classList.toggle("displayNone");
+      $fillHeart[i].classList.toggle("displayNone");
+    });
   }
   for (let i = 0; i < $fillHeart.length; i++) {
     $fillHeart[i].addEventListener("click", (e) => {
@@ -106,8 +103,7 @@ console.log(data)
       $heart[i].classList.toggle("displayNone");
     });
   }
-    
-      
+
   // console.log($heart);
   // $heart.forEach((e) => {
   //   e.addEventListener('click', e => {

@@ -13,9 +13,8 @@
   const $tag = document.querySelectorAll(".hashtag");
   const $cardBox = document.querySelector("#cardBox");
   const $cate = document.querySelector("#category");
-  const $fillHeart = document.querySelectorAll(".fillHeart");
-  const $heart = document.querySelectorAll(".heart");
-  const $box = document.querySelectorAll(".box");
+  const $paging = document.querySelector("#paging");
+  const $container = document.querySelector("#container");
 
   for (let i = 0; i < $tag.length; i++) {
     if (!$tag[i].classList.contains("textHover")) {
@@ -34,7 +33,8 @@
   // }
   let clicktag = "";
   let data = "";
-  let aa = "";
+  let page = 1;
+  const rowCnt = 10;
 
   fetch("tag.json")
     .then((res) => res.json())
@@ -61,7 +61,6 @@
     } else {
       data = json.angry;
     }
-    console.log(data);
     makelist(data);
   }
 
@@ -83,26 +82,109 @@
       });
     });
   }
-  console.log($box);
 
+  function makelist(jsonlist) {
+    data = jsonlist;
+    const itemLen = data.length;
+    console.log(itemLen);
+    const maxPage = Math.ceil(itemLen / rowCnt);
+    makePaging(maxPage);
+    makeList(jsonlist);
+  }
 
-  function makelist(data) {
-    
+  function makeList(jsonlist) {
+    // $container.innerHTML = "";
+    const sIdx = (page - 1) * rowCnt;
+    const eResult = page * rowCnt;
+    const eIdx = eResult > data.length ? data.length : eResult;
+
+    for (let i = sIdx; i < eIdx; i++) {
+      const item = data[i];
+      makeItem(item);
+    }
+    // changeSelected();
+  }
+
+  function makeItem(item) {
+    const $card = document.createElement("div");
+
+    $card.classList.add('card')
+    $card.innerHTML = `
+    <img class="tape" src="image/tape.svg" alt="" />
+    <div class="box">
+    <div class="titleBox">
+    <div class="title">${item.title}</div>
+    <img class="cardEmoji" src="image/${item.Emoji}.png" alt="" />
+    </div>
+    <div class="contentBox">
+    <p>
+    ${item.content}
+    </p>
+    </div>
+    `;
+    $cardBox.appendChild($card);
+
+    // 좋아요 버튼 만들기
+    const $fillHeart = document.createElement("img");
+    const $heart = document.createElement("img");
+    const $aa = document.createElement("div");
+
+    $aa.classList.add('aa')
+
+    $fillHeart.classList.add("fillHeart", "displayNone");
+    $fillHeart.src = "image/fillHeart.svg";
+
+    $heart.classList.add("heart");
+    $heart.src = "image/heart.svg";
+    const $box = $card.querySelector(".box");
+
+    $aa.appendChild($fillHeart);
+    $aa.appendChild($heart);
+    $box.appendChild($aa);
+    $box.appendChild($aa);
+
+    // 좋아요 토글
+    $heart.addEventListener("click", (e) => {
+      e.target.classList.toggle("displayNone");
+      $fillHeart.classList.toggle("displayNone");
+    });
+    $fillHeart.addEventListener("click", (e) => {
+      e.target.classList.toggle("displayNone");
+      $heart.classList.toggle("displayNone");
+    });
+
+    // for (let i = 0; i < $heart.length; i++) {
+    //   $heart[i].addEventListener("click", (e) => {
+    //     e.target.classList.toggle("displayNone");
+    //     $fillHeart[i].classList.toggle("displayNone");
+    //   });
+    // }
+    // for (let i = 0; i < $fillHeart.length; i++) {
+    //   $fillHeart[i].addEventListener("click", (e) => {
+    //     e.target.classList.toggle("displayNone");
+    //     $heart[i].classList.toggle("displayNone");
+    //   });
+    // }
+  }
+
+  function makePaging(maxPage) {
+    for (let i = 1; i <= maxPage; i++) {
+      const span = document.createElement("span");
+      $paging.appendChild(span);
+
+      span.classList.add("page");
+      span.classList.add("pointer");
+      span.textContent = i.toString();
+
+      span.addEventListener("click", (e) => {
+        page = i;
+        makeList();
+        window.scrollTo(0, 0);
+      });
+    }
   }
 
   // 하트 토글
-  for (let i = 0; i < $heart.length; i++) {
-    $heart[i].addEventListener("click", (e) => {
-      e.target.classList.toggle("displayNone");
-      $fillHeart[i].classList.toggle("displayNone");
-    });
-  }
-  for (let i = 0; i < $fillHeart.length; i++) {
-    $fillHeart[i].addEventListener("click", (e) => {
-      e.target.classList.toggle("displayNone");
-      $heart[i].classList.toggle("displayNone");
-    });
-  }
 
   // console.log($heart);
   // $heart.forEach((e) => {

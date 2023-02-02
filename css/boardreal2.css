@@ -92,6 +92,10 @@
   user-select: none;
 }
 
+.selected{
+  color:red;
+}
+
 .displayNone {
   display: none !important;
 }

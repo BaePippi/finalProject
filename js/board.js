@@ -27,14 +27,12 @@
     }
   }
 
-  // json 가져오기
-  // getData();
-  // function getData() {
-  // }
   let clicktag = "";
   let data = "";
   let page = 1;
   const rowCnt = 10;
+
+  // json 가져오기
 
   fetch("tag.json")
     .then((res) => res.json())
@@ -61,7 +59,7 @@
     } else {
       data = json.angry;
     }
-    makelist(data);
+    makeDisplay(data);
   }
 
   // 카테고리 클릭
@@ -71,7 +69,7 @@
       e.addEventListener("click", (e) => {
         e.target.classList.toggle("tagClick", true);
         clicktag = e.target.attributes.tag.value;
-        // console.log(clicktag)
+        page = 1;
         for (let i = 0; i < $tag.length; i++) {
           if (e.target != $tag[i]) {
             $tag[i].classList.toggle("textHover", false);
@@ -83,17 +81,24 @@
     });
   }
 
-  function makelist(jsonlist) {
+  function makeDisplay(jsonlist) {
+    $paging.innerHTML = "";
     data = jsonlist;
     const itemLen = data.length;
     console.log(itemLen);
     const maxPage = Math.ceil(itemLen / rowCnt);
     makePaging(maxPage);
-    makeList(jsonlist);
+    makeList();
   }
 
-  function makeList(jsonlist) {
-    // $container.innerHTML = "";
+  function makeList() {
+    // 클릭하면 카드없애기
+    const del = document.querySelectorAll(".del");
+    console.log(del);
+    for (let i = 0; i < del.length; i++) {
+      $cardBox.removeChild(del[i]);
+    }
+
     const sIdx = (page - 1) * rowCnt;
     const eResult = page * rowCnt;
     const eIdx = eResult > data.length ? data.length : eResult;
@@ -102,13 +107,14 @@
       const item = data[i];
       makeItem(item);
     }
-    // changeSelected();
+    changeSelected();
   }
 
   function makeItem(item) {
     const $card = document.createElement("div");
 
-    $card.classList.add('card')
+    $card.classList.add("card", "del");
+    $card.id = item.id
     $card.innerHTML = `
     <img class="tape" src="image/tape.svg" alt="" />
     <div class="box">
@@ -129,7 +135,7 @@
     const $heart = document.createElement("img");
     const $aa = document.createElement("div");
 
-    $aa.classList.add('aa')
+    $aa.classList.add("aa");
 
     $fillHeart.classList.add("fillHeart", "displayNone");
     $fillHeart.src = "image/fillHeart.svg";
@@ -165,6 +171,174 @@
     //     $heart[i].classList.toggle("displayNone");
     //   });
     // }
+
+
+
+
+    // if해결하기
+    const $modalDisplay = document.querySelector(".modalAll");
+    $card.addEventListener("click", (e) => {
+      if(e.target !== $heart) {
+        localStorage.setItem("list", JSON.stringify(item));
+        $modalDisplay.classList.toggle("displayNone", false);
+        makeModal();
+      }
+    });
+  }
+  let modalData = '';
+
+  function makeModal() {
+    modalData = JSON.parse(localStorage.getItem("list"));
+  const $modal = document.querySelector("#modal");
+  console.log(modalData);
+  $modal.innerHTML = `
+    <div class="close"></div>
+        <div class="modalSection1">
+          <div class="modalTitleBox">
+            <p class="m-title">${modalData.title}</p>
+            <div class="m-emoji"></div>
+          </div>
+          <div class="modalContentBox">
+            <div class="modalMainImg"></div>
+            <div class="m-content">
+              <p>
+                ${modalData.content}
+              </p>
+              <div>
+                <div class="m-hashtag">
+                  <div class="zigzag">
+                    <p>#SAD</p>
+                  </div>
+                </div>
+                <img
+                  class="fillHeart m-fillHeart displayNone"
+                  src="image/fillHeart.svg"
+                  alt=""
+                />
+                <img class="heart m-heart" src="image/heart.svg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="m-Section5">
+          <p>수정</p>
+          <p>삭제</p>
+        </div>
+        <div class="m-Section3">
+          <p class="section3-title">RECOMMENDED ITEM</p>
+          <ul class="itemList">
+            <li class="item"></li>
+            <li class="item"></li>
+            <li class="item"></li>
+            <li class="item"></li>
+          </ul>
+        </div>
+        <div class="m-Section2">
+          <p>댓글 34개</p>
+        </div>
+        <div class="m-Section4 displayNone">
+          <div>
+            <div class="comment">
+              <div class="commentEmoji"></div>
+              <p>잘 했고, 잘 하고 있고, 잘 할거야.</p>
+              <p class="re-comment">답글쓰기</p>
+              <img
+                class="fillHeart co-fillHeart displayNone"
+                src="image/fillHeart.svg"
+                alt=""
+              />
+              <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+              <div class="commentEmoji"></div>
+              <p>힘내렴</p>
+              <p class="re-comment">답글쓰기</p>
+              <img
+                class="fillHeart co-fillHeart displayNone"
+                src="image/fillHeart.svg"
+                alt=""
+              />
+              <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+              <div class="commentEmoji"></div>
+              <p>ㅅㄱ</p>
+              <p class="re-comment">답글쓰기</p>
+              <img
+                class="fillHeart co-fillHeart displayNone"
+                src="image/fillHeart.svg"
+                alt=""
+              />
+              <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+              <div class="commentEmoji"></div>
+              <p>우리 조금은 찬란하게 심적으로 가난해보자고</p>
+              <p class="re-comment">답글쓰기</p>
+              <img
+                class="fillHeart co-fillHeart displayNone"
+                src="image/fillHeart.svg"
+                alt=""
+              />
+              <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+              <div class="commentEmoji"></div>
+              <p>
+                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+              </p>
+              <p class="re-comment">답글쓰기</p>
+              <img
+                class="fillHeart co-fillHeart displayNone"
+                src="image/fillHeart.svg"
+                alt=""
+              />
+              <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+              <div class="commentEmoji"></div>
+              <p>
+                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+              </p>
+              <p class="re-comment">답글쓰기</p>
+              <img
+                class="fillHeart co-fillHeart displayNone"
+                src="image/fillHeart.svg"
+                alt=""
+              />
+              <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+              <div class="commentEmoji"></div>
+              <p>
+                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+              </p>
+              <p class="re-comment">답글쓰기</p>
+              <img
+                class="fillHeart co-fillHeart displayNone"
+                src="image/fillHeart.svg"
+                alt=""
+              />
+              <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="commentInput">
+          <div>
+            <div class="inputEmoji"></div>
+            <p>댓글을 입력하세요.</p>
+            <p>게시</p>
+          </div>
+        </div>
+  `;
+}
+
+  function changeSelected() {
+    const pageSpanList = document.querySelectorAll(".page");
+    pageSpanList.forEach((item) => {
+      const innerNum = parseInt(item.textContent);
+      item.classList.toggle("selected", page === innerNum);
+    });
   }
 
   function makePaging(maxPage) {

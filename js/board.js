@@ -386,7 +386,60 @@ background-image: URL(${modalData.img});"></div>
         </div>
         <div class="commentInput">
           <div>
-            <div class="inputEmoji"></div>
+            <ul class="inputEmoji dropdown dropdown-1">
+              <li class="inputEmoji">
+                <ul class="dropdown_menu dropdown_menu-1">
+                  <li
+                    class="dropdown_item-1"
+                    style="
+                      background-image: URL(image/happy.png);
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                    "
+                  ></li>
+                  <li
+                    class="dropdown_item-2"
+                    style="
+                      background-image: URL(image/bored.png);
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                    "
+                  ></li>
+                  <li
+                    class="dropdown_item-3"
+                    style="
+                      background-image: URL(image/lonely.png);
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                    "
+                  ></li>
+                  <li
+                    class="dropdown_item-4"
+                    style="
+                      background-image: URL(image/nervous.png);
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                    "
+                  ></li>
+                  <li
+                    class="dropdown_item-5"
+                    style="
+                      background-image: URL(image/angry.png);
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                    "
+                  ></li>
+                  <li
+                    class="dropdown_item-6"
+                    style="
+                      background-image: URL(image/sad.png);
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                    "
+                  ></li>
+                </ul>
+              </li>
+            </ul>
             <input class="input" placeholder="댓글을 입력하세요.">
             <p class="save">게시</p>
           </div>

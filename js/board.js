@@ -380,26 +380,50 @@ background-image: URL(${modalData.img});"></div>
         <div class="commentInput">
           <div>
             <div class="inputEmoji"></div>
-            <p class="input">댓글을 입력하세요.</p>
+            <input class="input" placeholder="댓글을 입력하세요.">
             <p class="save">게시</p>
           </div>
         </div>
   `;
 
-  
     const close = document.querySelector(".close");
     const modalDisplay = document.querySelector(".modalAll");
     close.addEventListener("click", (e) => {
       modalDisplay.classList.toggle("displayNone", true);
     });
-    const input = document.querySelector('.input');
+
+    const $heart = document.querySelector(".heart");
+    const $fillHeart = document.querySelector(".fillHeart");
+
+    $heart.addEventListener("click", (e) => {
+      e.target.classList.toggle("displayNone");
+      $fillHeart.classList.toggle("displayNone");
+    });
+    $fillHeart.addEventListener("click", (e) => {
+      e.target.classList.toggle("displayNone");
+      $heart.classList.toggle("displayNone");
+    });
+
+    // 댓글창 on / off
+    const input = document.querySelector(".input");
     const mSection4 = document.querySelector(".m-Section4");
-    const inputClose = document.querySelector('.inputClose');
-    
-    input.addEventListener('click', e=>{
-      mSection4.classList.toggle("displayNone",  false);
+    const inputClose = document.querySelector(".inputClose");
+    const mSection2 = document.querySelector(".m-Section2");
+
+    mSection2.addEventListener("click", (e) => {
+      mSection4.classList.toggle("displayNone", false);
       inputClose.classList.toggle("displayNone", false);
-    })
+    });
+
+    input.addEventListener("click", (e) => {
+      mSection4.classList.toggle("displayNone", false);
+      inputClose.classList.toggle("displayNone", false);
+    });
+
+    inputClose.addEventListener("click", (e) => {
+      mSection4.classList.toggle("displayNone", true);
+      inputClose.classList.toggle("displayNone", true);
+    });
   }
 
   function changeSelected() {

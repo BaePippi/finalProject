@@ -318,7 +318,20 @@
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 }
+#modal ::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
+}
 
+#modal ::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #E9DDD4; /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+
+#modal ::-webkit-scrollbar-track {
+  background: #F6F3EE; /*스크롤바 뒷 배경 색상*/
+}
 #modal {
   width: 530px;
   height: 700px;
@@ -360,7 +373,7 @@
   height: 20px;
   position: absolute;
   top: 400px;
-  left: 255px;
+  left: inherit;
 }
 
 .modalSection1 {
@@ -422,6 +435,8 @@
 
 .m-content > p {
   margin-bottom: 20px;
+  height: inherit;
+  overflow: auto;
 }
 .m-content > div {
   display: flex;
@@ -579,13 +594,16 @@
   align-items: center;
 }
 
-.inputEmoji + p {
+.inputEmoji + input {
   width: 410px;
   font-weight: 300;
   font-size: 12px;
   color: #c9c7bb;
   height: 100%;
-  padding-top: 14px;
+  border: none;
+}
+input:focus {
+  outline: none;
 }
 
 .commentInput p:last-of-type {
@@ -711,6 +729,7 @@
   }
   .aa {
     align-items: flex-start;
+    width: 27px;
   }
   .tape {
     display: none;
@@ -821,7 +840,7 @@
 @media (max-width: 600px) {
   #modal {
     width: 100%;
-    height: 100%;
+    height: auto;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -833,6 +852,7 @@
     -webkit-transform: translate(-50%, -50%);
     z-index: 9999;
     background-color: #fff;
+    justify-content: space-between;
   }
 
   .m-more {
@@ -900,6 +920,9 @@
     line-height: 20px;
     margin-top: 30px;
   }
+  .m-content > p {
+    height: inherit;
+  }
   .m-Section2 {
     margin-top: 50px;
     height: fit-content;
@@ -917,7 +940,7 @@
     background: url("../image/zigzag.svg") no-repeat left center;
     background-size: 3.17vw 2.17vw;
     padding-left: 1.17vw;
-    width: 40px;
+    width: 50px;
   }
 
   .zigzag p {
@@ -963,6 +986,10 @@
   }
   .m-Section4 {
     top: 632px;
+  }
+
+  .inputClose {
+    top: 610px;
   }
   /* .m-Section4 {
   display: flex;
@@ -1043,7 +1070,7 @@
     align-items: center;
   }
 
-  .inputEmoji + p {
+  .inputEmoji + input {
     width: 85%;
     font-weight: 300;
     color: #c9c7bb;

@@ -114,7 +114,7 @@
     const $card = document.createElement("div");
 
     $card.classList.add("card", "del");
-    $card.id = item.id
+    $card.id = item.id;
     $card.innerHTML = `
     <img class="tape" src="image/tape.svg" alt="" />
     <div class="box">
@@ -172,34 +172,32 @@
     //   });
     // }
 
-
-
-
-    // if해결하기
     const $modalDisplay = document.querySelector(".modalAll");
     $card.addEventListener("click", (e) => {
-      if(e.target !== $heart) {
+      if (e.target !== $heart && e.target !== $fillHeart) {
         localStorage.setItem("list", JSON.stringify(item));
         $modalDisplay.classList.toggle("displayNone", false);
         makeModal();
       }
     });
   }
-  let modalData = '';
+  let modalData = "";
 
   function makeModal() {
     modalData = JSON.parse(localStorage.getItem("list"));
-  const $modal = document.querySelector("#modal");
-  console.log(modalData);
-  $modal.innerHTML = `
+    const $modal = document.querySelector("#modal");
+    console.log(modalData);
+    $modal.innerHTML = `
     <div class="close"></div>
         <div class="modalSection1">
           <div class="modalTitleBox">
             <p class="m-title">${modalData.title}</p>
-            <div class="m-emoji"></div>
+            <div class="m-emoji" style="
+background-image: URL(../image/${modalData.Emoji}.png);"></div>
           </div>
           <div class="modalContentBox">
-            <div class="modalMainImg"></div>
+            <div class="modalMainImg" style="
+background-image: URL(${modalData.img});"></div>
             <div class="m-content">
               <p>
                 ${modalData.content}
@@ -207,7 +205,7 @@
               <div>
                 <div class="m-hashtag">
                   <div class="zigzag">
-                    <p>#SAD</p>
+                    <p>#${modalData.Emoji.toUpperCase()}</p>
                   </div>
                 </div>
                 <img
@@ -326,12 +324,22 @@
         <div class="commentInput">
           <div>
             <div class="inputEmoji"></div>
-            <p>댓글을 입력하세요.</p>
-            <p>게시</p>
+            <p class="input">댓글을 입력하세요.</p>
+            <p class="save">게시</p>
           </div>
         </div>
   `;
-}
+    const close = document.querySelector(".close");
+    const modalDisplay = document.querySelector(".modalAll");
+    close.addEventListener("click", (e) => {
+      modalDisplay.classList.toggle("displayNone", true);
+    });
+    const input = document.querySelector('.input');
+    const mSection4 = document.querySelector(".m-Section4");
+    input.addEventListener('click', e=>{
+      mSection4.classList.toggle("displayNone",  false);
+    })
+  }
 
   function changeSelected() {
     const pageSpanList = document.querySelectorAll(".page");

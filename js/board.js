@@ -186,14 +186,16 @@
   function makeModal() {
     modalData = JSON.parse(localStorage.getItem("list"));
     const $modal = document.querySelector("#modal");
-    console.log(modalData);
+    const change = modalData.Emoji.toUpperCase();
+    console.log(change);
+
     $modal.innerHTML = `
     <div class="close"></div>
         <div class="modalSection1">
           <div class="modalTitleBox">
             <p class="m-title">${modalData.title}</p>
             <div class="m-emoji" style="
-background-image: URL(./image/${modalData.Emoji.toUpperCase()}.png);"></div>
+background-image: URL(https://baepippi.github.io/finalProject/image/${change}.png);"></div>
           </div>
           <div class="modalContentBox">
             <div class="modalMainImg" style="
@@ -205,7 +207,7 @@ background-image: URL(${modalData.img});"></div>
               <div>
                 <div class="m-hashtag">
                   <div class="zigzag">
-                    <p>#${modalData.Emoji.toUpperCase()}</p>
+                    <p>#${change}</p>
                   </div>
                 </div>
                 <img
@@ -383,6 +385,8 @@ background-image: URL(${modalData.img});"></div>
           </div>
         </div>
   `;
+
+  console.log('https://baepippi.github.io/finalProject/image/${modalData.Emoji.toUpperCase()}.png')
     const close = document.querySelector(".close");
     const modalDisplay = document.querySelector(".modalAll");
     close.addEventListener("click", (e) => {

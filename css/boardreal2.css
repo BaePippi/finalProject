@@ -78,6 +78,7 @@
     url("./woff2/Pretendard-Thin.woff2") format("woff2"),
     url("./woff/Pretendard-Thin.woff") format("woff");
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -840,7 +841,8 @@ input:focus {
 @media (max-width: 600px) {
   #modal {
     width: 100%;
-    height: calc(var(--vh, 1vh) * 100);
+    /* height: calc(var(--vh, 1vh) * 100); */
+    height: auto;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -1082,6 +1084,6 @@ input:focus {
   }
   .m-Section5 {
     width: calc(350px * 0.75);
-    margin-bottom: 110px;
+    margin-bottom: 60px;
   }
 }

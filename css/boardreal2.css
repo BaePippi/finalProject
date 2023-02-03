@@ -659,7 +659,8 @@ dropdown_item-1 {
   margin: 12.5px;
 }
 
-.dropdown:hover .dropdown_menu--animated {
+/* .dropdown:hover  */
+.dropdown_menu--animated {
   display: block;
 }
 .dropdown_menu--animated {

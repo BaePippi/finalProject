@@ -471,25 +471,30 @@ background-image: URL(${modalData.img});"></div>
     const dropdownMenu = document.querySelector(".dropdown_menu");
     const dropList = document.querySelectorAll(".dropdown li");
     console.log(dropList)
-    dropList.forEach((item)=>{
+    
       dropdown.addEventListener('click',()=>{
-        item.style.animationName = "slideDown";
-        item.style.display = "block";
-        dropdownMenu.style.backgroundColor = " #fff";
+        dropList.forEach((item)=>{
+          item.style.animationName = "slideDown";
+          item.style.display = "block";
+          // dropdownMenu.style.display = 'block';
+          dropdownMenu.style.backgroundColor = " #fff";
           // dropdownMenu.classList.remove("displayNone");
-      })
-      item.addEventListener('click', event => {
-        dropdown.style.backgroundImage = event.target.style.backgroundImage;
-        // event.target.parentNode.classList.add("displayNone");
-        console.log(event.target.parentNode.classList);
-        dropdownMenu.classList.add("displayNone");
-        
-        
+          item.addEventListener('click', event => {
+            dropdown.style.backgroundImage = event.target.style.backgroundImage;
+            item.style.animationName = "undefind";
+            item.style.display = "none";
+            // event.target.parentNode.classList.add("displayNone");
+            console.log(event.target.parentNode.classList);
+            dropdownMenu.style.display = 'none';
+            
+            
+          })
       })
     })
     // dropdown.addEventListener('click',()=>{
     //   dropdownMenu.classList.remove("displayNone");
     // })
+    
     
 
     // 댓글창 on / off

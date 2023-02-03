@@ -195,7 +195,7 @@
           <div class="modalTitleBox">
             <p class="m-title">${modalData.title}</p>
             <div class="m-emoji" style="
-background-image: URL(https://baepippi.github.io/finalProject/image/${modalData.Emoji.toUpperCase()}.png);"></div>
+background-image: URL(image/${modalData.Emoji}.png);"></div>
           </div>
           <div class="modalContentBox">
             <div class="modalMainImg" style="
@@ -207,7 +207,7 @@ background-image: URL(${modalData.img});"></div>
               <div>
                 <div class="m-hashtag">
                   <div class="zigzag">
-                    <p>#${modalData.Emoji.toUpperCase()}</p>
+                    <p>#${modalData.Emoji}</p>
                   </div>
                 </div>
                 <img
@@ -386,7 +386,7 @@ background-image: URL(${modalData.img});"></div>
         </div>
   `;
 
-  console.log('https://baepippi.github.io/finalProject/image/${modalData.Emoji.toUpperCase()}.png')
+  
     const close = document.querySelector(".close");
     const modalDisplay = document.querySelector(".modalAll");
     close.addEventListener("click", (e) => {

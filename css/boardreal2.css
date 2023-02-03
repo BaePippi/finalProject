@@ -354,6 +354,15 @@
   background-size: contain;
 }
 
+.inputClose {
+  background-image: URL(../image/close2.svg);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 400px;
+  left: 255px;
+}
+
 .modalSection1 {
   display: flex;
   flex-direction: column;
@@ -503,7 +512,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 6px;
+  gap: 10px;
   overflow: auto;
   height: 200px;
   -ms-overflow-style: none;
@@ -584,8 +593,8 @@
   font-weight: 400;
   color: #c9c7bb;
   height: 100%;
-    /* text-align: center; */
-    padding-top: 14px;
+  /* text-align: center; */
+  padding-top: 14px;
   /* margin-right: 10px; */
 }
 

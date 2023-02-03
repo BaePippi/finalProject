@@ -34,7 +34,7 @@
 
   // json 가져오기
 
-  fetch("tag.json")
+  fetch("https://baepippi.github.io/finalProject/tag.json")
     .then((res) => res.json())
     .then((res) => {
       getData(res);
@@ -193,7 +193,7 @@
           <div class="modalTitleBox">
             <p class="m-title">${modalData.title}</p>
             <div class="m-emoji" style="
-background-image: URL(../image/${modalData.Emoji}.png);"></div>
+background-image: URL(./image/${modalData.Emoji}.png);"></div>
           </div>
           <div class="modalContentBox">
             <div class="modalMainImg" style="
@@ -234,6 +234,8 @@ background-image: URL(${modalData.img});"></div>
         <div class="m-Section2">
           <p>댓글 34개</p>
         </div>
+        <div class="inputClose displayNone"></div>
+
         <div class="m-Section4 displayNone">
           <div>
             <div class="comment">
@@ -319,6 +321,58 @@ background-image: URL(${modalData.img});"></div>
               />
               <img class="heart co-heart" src="image/heart.svg" alt="" />
             </div>
+            <div class="comment">
+              <div class="commentEmoji"></div>
+              <p>
+                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+              </p>
+              <p class="re-comment">답글쓰기</p>
+              <img
+                class="fillHeart co-fillHeart displayNone"
+                src="image/fillHeart.svg"
+                alt=""
+              />
+              <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+              <div class="commentEmoji"></div>
+              <p>
+                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+              </p>
+              <p class="re-comment">답글쓰기</p>
+              <img
+                class="fillHeart co-fillHeart displayNone"
+                src="image/fillHeart.svg"
+                alt=""
+              />
+              <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+              <div class="commentEmoji"></div>
+              <p>
+                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+              </p>
+              <p class="re-comment">답글쓰기</p>
+              <img
+                class="fillHeart co-fillHeart displayNone"
+                src="image/fillHeart.svg"
+                alt=""
+              />
+              <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+              <div class="commentEmoji"></div>
+              <p>
+                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+              </p>
+              <p class="re-comment">답글쓰기</p>
+              <img
+                class="fillHeart co-fillHeart displayNone"
+                src="image/fillHeart.svg"
+                alt=""
+              />
+              <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
           </div>
         </div>
         <div class="commentInput">
@@ -336,8 +390,11 @@ background-image: URL(${modalData.img});"></div>
     });
     const input = document.querySelector('.input');
     const mSection4 = document.querySelector(".m-Section4");
+    const inputClose = document.querySelector('.inputClose');
+    
     input.addEventListener('click', e=>{
       mSection4.classList.toggle("displayNone",  false);
+      inputClose.classList.toggle("displayNone", false);
     })
   }
 

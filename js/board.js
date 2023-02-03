@@ -186,7 +186,7 @@
   function makeModal() {
     modalData = JSON.parse(localStorage.getItem("list"));
     const $modal = document.querySelector("#modal");
-    const change = modalData.Emoji.toUpperCase();
+    // const change = modalData.Emoji.toUpperCase();
     console.log(change);
 
     $modal.innerHTML = `
@@ -195,7 +195,7 @@
           <div class="modalTitleBox">
             <p class="m-title">${modalData.title}</p>
             <div class="m-emoji" style="
-background-image: URL(https://baepippi.github.io/finalProject/image/${change}.png);"></div>
+background-image: URL(https://baepippi.github.io/finalProject/image/${modalData.Emoji}.png);"></div>
           </div>
           <div class="modalContentBox">
             <div class="modalMainImg" style="
@@ -207,7 +207,7 @@ background-image: URL(${modalData.img});"></div>
               <div>
                 <div class="m-hashtag">
                   <div class="zigzag">
-                    <p>#${change}</p>
+                    <p>#${modalData.Emoji}</p>
                   </div>
                 </div>
                 <img

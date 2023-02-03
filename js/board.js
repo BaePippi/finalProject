@@ -386,8 +386,8 @@ background-image: URL(${modalData.img});"></div>
         </div>
         <div class="commentInput">
           <div>
-            <ul class="inputEmoji dropdown dropdown-1">
-              <li class="inputEmoji">
+            <ul class="menu">
+              <li class="inputEmoji dropdown dropdown-1">
                 <ul class="dropdown_menu dropdown_menu-1">
                   <li
                     class="dropdown_item-1"
@@ -463,6 +463,34 @@ background-image: URL(${modalData.img});"></div>
       e.target.classList.toggle("displayNone");
       $heart.classList.toggle("displayNone");
     });
+
+
+    // 이모티콘 드롭다운
+
+    const dropdown = document.querySelector(".dropdown");
+    const dropdownMenu = document.querySelector(".dropdown_menu");
+    const dropList = document.querySelectorAll(".dropdown li");
+    console.log(dropList)
+    dropList.forEach((item)=>{
+      dropdown.addEventListener('click',()=>{
+        item.style.animationName = "slideDown";
+        item.style.display = "block";
+        dropdownMenu.style.backgroundColor = " #fff";
+          // dropdownMenu.classList.remove("displayNone");
+      })
+      item.addEventListener('click', event => {
+        dropdown.style.backgroundImage = event.target.style.backgroundImage;
+        // event.target.parentNode.classList.add("displayNone");
+        console.log(event.target.parentNode.classList);
+        dropdownMenu.classList.add("displayNone");
+        
+        
+      })
+    })
+    // dropdown.addEventListener('click',()=>{
+    //   dropdownMenu.classList.remove("displayNone");
+    // })
+    
 
     // 댓글창 on / off
     const input = document.querySelector(".input");

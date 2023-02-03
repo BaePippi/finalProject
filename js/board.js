@@ -40,33 +40,24 @@
   const rowCnt = 10;
 
   // json 가져오기
-
-  fetch("https://baepippi.github.io/finalProject/tag.json")
-    .then((res) => res.json())
-    .then((res) => {
-      getData(res);
-      getData2(res);
-    });
   $tag.forEach((e) => {
     if (e.classList.contains("tagClick")) {
       clicktag = e.attributes.tag.value;
     }
   });
-  function getData(json) {
-    if (clicktag === "happy") {
-      data = json.happy;
-    } else if (clicktag === "bored") {
-      data = json.bored;
-    } else if (clicktag === "nervous") {
-      data = json.nervous;
-    } else if (clicktag === "lonely") {
-      data = json.lonely;
-    } else if (clicktag === "sad") {
-      data = json.sad;
-    } else {
-      data = json.angry;
-    }
-    makeDisplay(data);
+  
+  getData();
+  function getData() {
+    let url = `https://baepippi.github.io/finalProject/${clicktag}.json`
+    fetch(`${url}`)
+    .then((res) => res.json())
+    .then((res) => {
+      makeDisplay(res);
+      console.log(url)
+        getData2(res);
+      });
+    data = clicktag
+    // makeDisplay(data);
   }
 
   // 카테고리 클릭
@@ -83,7 +74,7 @@
             $tag[i].classList.toggle("tagClick", false);
           }
         }
-        getData(json);
+        getData();
       });
     });
   }

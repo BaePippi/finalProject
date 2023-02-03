@@ -1081,7 +1081,7 @@ input:focus {
     color: #c9c7bb;
   }
   .m-Section5 {
-    width: 262.5px;
+    width: calc(350px * 0.75);
     margin-bottom: 110px;
   }
 }

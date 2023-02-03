@@ -195,7 +195,7 @@
           <div class="modalTitleBox">
             <p class="m-title">${modalData.title}</p>
             <div class="m-emoji" style="
-background-image: URL(https://baepippi.github.io/finalProject/image/${modalData.Emoji}.png);"></div>
+background-image: URL(https://baepippi.github.io/finalProject/image/${modalData.Emoji.toUpperCase()}.png);"></div>
           </div>
           <div class="modalContentBox">
             <div class="modalMainImg" style="
@@ -207,7 +207,7 @@ background-image: URL(${modalData.img});"></div>
               <div>
                 <div class="m-hashtag">
                   <div class="zigzag">
-                    <p>#${modalData.Emoji}</p>
+                    <p>#${modalData.Emoji.toUpperCase()}</p>
                   </div>
                 </div>
                 <img

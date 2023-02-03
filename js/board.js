@@ -193,7 +193,7 @@
           <div class="modalTitleBox">
             <p class="m-title">${modalData.title}</p>
             <div class="m-emoji" style="
-background-image: URL(./image/${modalData.Emoji}.png);"></div>
+background-image: URL(./image/${modalData.Emoji.toUpperCase()}.png);"></div>
           </div>
           <div class="modalContentBox">
             <div class="modalMainImg" style="

@@ -187,7 +187,7 @@
     modalData = JSON.parse(localStorage.getItem("list"));
     const $modal = document.querySelector("#modal");
     // const change = modalData.Emoji.toUpperCase();
-    console.log(change);
+    // console.log(change);
 
     $modal.innerHTML = `
     <div class="close"></div>

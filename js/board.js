@@ -379,7 +379,7 @@ background-image: URL(${modalData.img});"></div>
           <div>
             <ul class="menu">
               <li class="inputEmoji dropdown dropdown-1">
-                <ul class="dropdown_menu dropdown_menu-1">
+                <ul class="dropdown_menu dropdown_menu-1 displayNone">
                   <li
                     class="dropdown_item-1"
                     style="
@@ -461,27 +461,16 @@ background-image: URL(${modalData.img});"></div>
     const dropdown = document.querySelector(".dropdown");
     const dropdownMenu = document.querySelector(".dropdown_menu");
     const dropList = document.querySelectorAll(".dropdown li");
-    console.log(dropList)
-    
-      dropdown.addEventListener('click',()=>{
-        dropList.forEach((item)=>{
-          item.style.animationName = "slideDown";
-          item.style.display = "block";
-          // dropdownMenu.style.display = 'block';
-          dropdownMenu.style.backgroundColor = " #fff";
-          // dropdownMenu.classList.remove("displayNone");
-          item.addEventListener('click', event => {
-            dropdown.style.backgroundImage = event.target.style.backgroundImage;
-            item.style.animationName = "undefind";
-            item.style.display = "none";
-            // event.target.parentNode.classList.add("displayNone");
-            console.log(event.target.parentNode.classList);
-            dropdownMenu.style.display = 'none';
-            
-            
-          })
-      })
-    })
+    dropdown.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("displayNone");
+      dropList.forEach((item) => {
+        item.style.animationName = "slideDown";
+        item.style.display = "block";
+        item.addEventListener("click", (e) => {
+          dropdown.style.backgroundImage = e.target.style.backgroundImage;
+        });
+      });
+    });
     // dropdown.addEventListener('click',()=>{
     //   dropdownMenu.classList.remove("displayNone");
     // })

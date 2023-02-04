@@ -647,11 +647,11 @@ dropdown_item-1 {
   /* display: flex;
   flex-direction: column;
   gap: 10px; */
+  background-color: #fff;
   
 }
 .dropdown_menu li {
   display: none;
-  color: #fff;
   width: 25px;
   height: 25px;
   font-size: 16px;
@@ -697,7 +697,7 @@ dropdown_item-1 {
 @-moz-keyframes slideDown {
   0% {
     opacity: 0;
-    transform: translateY(0);
+    transform: translateY(-50px);
   }
   100% {
     opacity: 1;
@@ -707,7 +707,7 @@ dropdown_item-1 {
 @-webkit-keyframes slideDown {
   0% {
     opacity: 0;
-    transform: translateY(0);
+    transform: translateY(-50px);
   }
   100% {
     opacity: 1;
@@ -717,7 +717,7 @@ dropdown_item-1 {
 @-o-keyframes slideDown {
   0% {
     opacity: 0;
-    transform: translateY(0);
+    transform: translateY(-50px);
   }
   100% {
     opacity: 1;
@@ -727,7 +727,7 @@ dropdown_item-1 {
 @keyframes slideDown {
   0% {
     opacity: 0;
-    transform: translateY(0);
+    transform: translateY(-50px);
   }
   100% {
     opacity: 1;

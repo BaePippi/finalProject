@@ -412,7 +412,7 @@
 .modalMainImg {
   width: 174px;
   height: 169px;
-  /* background: url("../image/modalMain1.png") no-repeat; */
+  background: url("../image/addImg.png") no-repeat;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -434,10 +434,17 @@
   line-height: 22px;
 }
 
-.m-content > p {
+.m-content > input {
   margin-bottom: 20px;
-  height: inherit;
-  overflow: auto;
+    height: inherit;
+    overflow: auto;
+    width: -webkit-fill-available;
+    border: 1px solid #e9ddd4;
+    
+}
+
+.m-content > input:focus {
+  outline: none;
 }
 .m-content > div {
   display: flex;
@@ -1072,7 +1079,7 @@ dropdown_item-1 {
     line-height: 20px;
     margin-top: 30px;
   }
-  .m-content > p {
+  .m-content > input {
     height: inherit;
   }
   .m-Section2 {

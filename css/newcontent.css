@@ -399,9 +399,14 @@
   font-weight: 500;
   font-size: 14px;
   padding: 5px;
+  border: none;
   border-bottom: 1px solid #e9ddd4;
   width: 430px;
 }
+.m-title:focus {
+  outline: none;
+}
+
 .m-emoji {
   width: 30px;
   height: 30px;
@@ -436,11 +441,10 @@
 
 .m-content > input {
   margin-bottom: 20px;
-    height: inherit;
-    overflow: auto;
-    width: -webkit-fill-available;
-    border: 1px solid #e9ddd4;
-    
+  height: inherit;
+  overflow: auto;
+  width: -webkit-fill-available;
+  border: 1px solid #e9ddd4;
 }
 
 .m-content > input:focus {
@@ -616,58 +620,39 @@ dropdown_item-1 {
 /* 드롭다운 */
 
 .dropdown {
-  /* padding: 20px 40px; */
+  padding: 20px 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  /* background: #c06162;
-  background: #34495e; */
   position: relative;
   font-size: 18px;
   perspective: 1000px;
   z-index: 100;
-  /* 내가 준거 */
-  flex-direction: column-reverse;
 }
 .dropdown:hover {
-  /* background: #2980b9; */
   cursor: pointer;
 }
-/* .dropdown:hover .dropdown_menu li {
+.dropdown:hover .dropdown_menu li {
   display: block;
-} */
-
-/* .dropdown:hover .dropdown_menu {
-  background-color: #fff;
-} */
+}
 .dropdown_menu {
   position: absolute;
-  /* top: 100%; */
-  top: -700%;
-  left: -13px;
-  /* width: 100%; */
+  top: 100%;
+  left: 0;
+  width: 100%;
   perspective: 1000px;
   z-index: -1;
-  width: 50px;
-  height: 175px;
-  /* display: flex;
-  flex-direction: column;
-  gap: 10px; */
-  background-color: #fff;
-  
 }
 .dropdown_menu li {
   display: none;
-  width: 25px;
-  height: 25px;
+  padding: 10px 20px;
   font-size: 16px;
   opacity: 0;
-  margin: 12.5px;
 }
+/* .dropdown_menu li:hover {
 
-/* .dropdown:hover  */
-.dropdown_menu--animated {
+} */
+.dropdown:hover .dropdown_menu--animated {
   display: block;
 }
 .dropdown_menu--animated {
@@ -679,27 +664,23 @@ dropdown_item-1 {
 }
 .dropdown_menu-1 .dropdown_item-1 {
   transform-origin: top center;
-  animation:  300ms 300ms ease-in-out forwards;
+  animation: slideDown 300ms 60ms ease-in-out forwards;
 }
 .dropdown_menu-1 .dropdown_item-2 {
   transform-origin: top center;
-  animation:  300ms 240ms ease-in-out forwards;
+  animation: slideDown 300ms 120ms ease-in-out forwards;
 }
 .dropdown_menu-1 .dropdown_item-3 {
   transform-origin: top center;
-  animation:  300ms 180ms ease-in-out forwards;
+  animation: slideDown 300ms 180ms ease-in-out forwards;
 }
 .dropdown_menu-1 .dropdown_item-4 {
   transform-origin: top center;
-  animation:  300ms 120ms ease-in-out forwards;
+  animation: slideDown 300ms 240ms ease-in-out forwards;
 }
 .dropdown_menu-1 .dropdown_item-5 {
   transform-origin: top center;
-  animation:  300ms 60ms ease-in-out forwards;
-}
-.dropdown_menu-1 .dropdown_item-6 {
-  transform-origin: top center;
-  animation:  300ms 30ms ease-in-out forwards;
+  animation: slideDown 300ms 300ms ease-in-out forwards;
 }
 @-moz-keyframes slideDown {
   0% {

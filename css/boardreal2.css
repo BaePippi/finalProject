@@ -648,7 +648,6 @@ dropdown_item-1 {
   flex-direction: column;
   gap: 10px; */
   background-color: #fff;
-  
 }
 .dropdown_menu li {
   display: none;
@@ -672,27 +671,27 @@ dropdown_item-1 {
 }
 .dropdown_menu-1 .dropdown_item-1 {
   transform-origin: top center;
-  animation:  300ms 300ms ease-in-out forwards;
+  animation: 300ms 300ms ease-in-out forwards;
 }
 .dropdown_menu-1 .dropdown_item-2 {
   transform-origin: top center;
-  animation:  300ms 240ms ease-in-out forwards;
+  animation: 300ms 240ms ease-in-out forwards;
 }
 .dropdown_menu-1 .dropdown_item-3 {
   transform-origin: top center;
-  animation:  300ms 180ms ease-in-out forwards;
+  animation: 300ms 180ms ease-in-out forwards;
 }
 .dropdown_menu-1 .dropdown_item-4 {
   transform-origin: top center;
-  animation:  300ms 120ms ease-in-out forwards;
+  animation: 300ms 120ms ease-in-out forwards;
 }
 .dropdown_menu-1 .dropdown_item-5 {
   transform-origin: top center;
-  animation:  300ms 60ms ease-in-out forwards;
+  animation: 300ms 60ms ease-in-out forwards;
 }
 .dropdown_menu-1 .dropdown_item-6 {
   transform-origin: top center;
-  animation:  300ms 30ms ease-in-out forwards;
+  animation: 300ms 30ms ease-in-out forwards;
 }
 @-moz-keyframes slideDown {
   0% {

@@ -541,18 +541,37 @@ background-image: URL(${modalData.img});"></div>
   //   $tag[i].classList.add("swiper-slide");
   // }
 
-  let swiper = new Swiper(".swiper", {
-    slideToClickedSlide: true,
-    spaceBetween: 50,
+  // 이미지 파일 업로드
 
-    pagination: { el: ".swiper-pagination" },
-
-    scrollbar: { nel: ".swiper-scrollbar" },
-  });
-  // 스와이퍼막기
-  if (window.innerWidth <= 680) {
-    swiper.enable();
-  } else if (window.innerWidth > 680) {
-    swiper.disable();
+  function getImageFiles(e) {
+    const files = e.currentTarget.files;
+    console.log(typeof files, files);
+    [...files].forEach((file) => {
+      if (!file.type.match("image/.*")) {
+        alert("이미지 파일만 업로드가 가능합니다.");
+        return;
+      }
+    });
   }
+
+  const realUpload = document.querySelector(".real-upload");
+  const upload = document.querySelector(".upload");
+
+  upload.addEventListener("click", () => realUpload.click());
+  realUpload.addEventListener("change", getImageFiles);
+
+  // let swiper = new Swiper(".swiper", {
+  //   slideToClickedSlide: true,
+  //   spaceBetween: 50,
+
+  //   pagination: { el: ".swiper-pagination" },
+
+  //   scrollbar: { nel: ".swiper-scrollbar" },
+  // });
+  // // 스와이퍼막기
+  // if (window.innerWidth <= 680) {
+  //   swiper.enable();
+  // } else if (window.innerWidth > 680) {
+  //   swiper.disable();
+  // }
 })();

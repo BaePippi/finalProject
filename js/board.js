@@ -544,20 +544,44 @@ background-image: URL(${modalData.img});"></div>
   // 이미지 파일 업로드
 
   function getImageFiles(e) {
+    const uploadFiles = [];
     const files = e.currentTarget.files;
-    console.log(typeof files, files);
+    const imagePreview = document.querySelector(".image-preview");
+    const docFrag = new DocumentFragment();
+
+
+    // 파일 타입 검사
     [...files].forEach((file) => {
       if (!file.type.match("image/.*")) {
         alert("이미지 파일만 업로드가 가능합니다.");
         return;
       }
+
+      // 파일 갯수 검사
+      if ([...files].length < 2) {
+        uploadFiles.push(file);
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const preview = createElement(e, file);
+          imagePreview.appendChild(preview);
+        };
+        reader.readAsDataURL(file);
+      }
     });
+  }
+
+  function createElement(e, file) {
+    
+    upload.setAttribute("src", e.target.result);
+    upload.setAttribute("data-file", file.name);
+
   }
 
   const realUpload = document.querySelector(".real-upload");
   const upload = document.querySelector(".upload");
 
   upload.addEventListener("click", () => realUpload.click());
+
   realUpload.addEventListener("change", getImageFiles);
 
   // let swiper = new Swiper(".swiper", {

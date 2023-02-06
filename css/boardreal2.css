@@ -613,7 +613,7 @@ dropdown_item-1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  /* color: #fff; */
   /* background: #c06162;
   background: #34495e; */
   position: relative;

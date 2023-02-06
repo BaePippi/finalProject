@@ -417,9 +417,9 @@
 .modalMainImg {
   width: 174px;
   height: 169px;
-  background: url("../image/addImg.png") no-repeat;
-  background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
+  /* background: url("../image/addImg.png") no-repeat;
+  background-size: cover; */
 }
 
 .modalContentBox {
@@ -445,6 +445,7 @@
   overflow: auto;
   width: -webkit-fill-available;
   border: 1px solid #e9ddd4;
+  text-indent: 5px;
 }
 
 .m-content > input:focus {
@@ -490,7 +491,7 @@
 }
 
 .m-Section3 {
-  height: 190px;
+  height: 175px;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -620,12 +621,10 @@ dropdown_item-1 {
 /* 드롭다운 */
 
 .dropdown {
-  padding: 20px 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  font-size: 18px;
+  /* position: relative; */
   perspective: 1000px;
   z-index: 100;
 }
@@ -637,23 +636,28 @@ dropdown_item-1 {
 }
 .dropdown_menu {
   position: absolute;
-  top: 100%;
+  top: -320%;
   left: 0;
   width: 100%;
   perspective: 1000px;
   z-index: -1;
+  
+  /* background-color: #fff; */
 }
 .dropdown_menu li {
   display: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  background-color: #fff;
+  /* font-size: 16px; */
   opacity: 0;
+  width: 77px;
+  
 }
 /* .dropdown_menu li:hover {
 
 } */
 .dropdown:hover .dropdown_menu--animated {
   display: block;
+  background-color: #fff;
 }
 .dropdown_menu--animated {
   display: none;
@@ -661,6 +665,7 @@ dropdown_item-1 {
 .dropdown_menu--animated li {
   display: block;
   opacity: 1;
+  background-color: #fff;
 }
 .dropdown_menu-1 .dropdown_item-1 {
   transform-origin: top center;
@@ -767,6 +772,16 @@ dropdown_item-1 {
   text-align: end;
   font-size: 12px;
   color: #c9c7bb;
+}
+
+#save {
+  width: 60px;
+  height: 25px;
+  align-self: center;
+  background-color: #FBF9F7;
+  border: 1px solid #E9DDD4;
+  border-radius: 5px;
+  color: #C9C7BB;
 }
 
 /* 미디어쿼리 */
@@ -1228,9 +1243,7 @@ dropdown_item-1 {
   }
 }
 
-
 /* #fileUpload{
   width: 174px;
   margin-top: 5px;
 } */
-

@@ -4,40 +4,41 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/newcontent.css" />
+    <link rel="stylesheet" href="css/newContent2.css" />
     <title>Document</title>
   </head>
   <body>
-    <div class="modalAll">
-      <div class="bg"></div>
+    <div class="modalAll new">
+      <div class="bg new"></div>
       <div id="modal">
         <div class="close"></div>
-        <div class="modalSection1">
-          <div class="modalTitleBox">
+        <div class="modalSection1 new">
+          <div class="modalTitleBox new">
             <input
               type="text"
-              class="m-title"
+              class="m-title new"
               placeholder="제목을 입력하세요."
             />
-            <div class="m-emoji"></div>
+            <div class="m-emoji new" style="background-image: url('image/happy.png');"></div>
           </div>
-          <div class="modalContentBox">            
-              <img class="modalMainImg upload" src="image/addImg.png">
-              <input type="file" class="real-upload"  accept="image/*"  style="display: none;" >
-            <div class="m-content">
-              <input type="text" placeholder="내용을 입력하세요." />
+          <div class="modalContentBox new">            
+              <img class="modalMainImg upload new" src="image/addImg.png">
+              <input type="file" class="real-upload new"  accept="image/*"  style="display: none;" >
+            <div class="m-content new">
+              <textarea name="" id="" cols="30" rows="10" placeholder="내용을 입력하세요."></textarea>
+              <!-- <input type="text" placeholder="내용을 입력하세요." /> -->
               <div>
-                <div class="m-hashtag">
-                  <ul class="menu">
-                    <li class="zigzag dropdown dropdown-1">
-                      #SAD
-                      <ul class="dropdown_menu dropdown_menu-1">
-                        <li class="zigzag dropdown_item-1">#HAPPY</li>
-                        <li class="zigzag dropdown_item-1">#BORED</li>
-                        <li class="zigzag dropdown_item-1">#NERVOUS</li>
-                        <li class="zigzag dropdown_item-1">#LONELY</li>
-                        <li class="zigzag dropdown_item-1">#SAD</li>
-                        <li class="zigzag dropdown_item-1">#ANGRY</li>
+                <div class="m-hashtag new">
+                  <ul class="menu new">
+                    <li class="zigzag dropdown dropdown-1 new">
+                      #HAPPY
+                      <ul class="dropdown_menu dropdown_menu-1 new">
+                        <li class="zigzag dropdown_item-1  new">#HAPPY</li>
+                        <li class="zigzag dropdown_item-1 new">#BORED</li>
+                        <li class="zigzag dropdown_item-1 new">#NERVOUS</li>
+                        <li class="zigzag dropdown_item-1 new">#LONELY</li>
+                        <li class="zigzag dropdown_item-1 new">#SAD</li>
+                        <li class="zigzag dropdown_item-1 new">#ANGRY</li>
                       </ul>
                     </li>
                   </ul>
@@ -46,16 +47,23 @@
             </div>
           </div>
         </div>
-        <div class="m-Section5">
-        </div>
-        <div class="m-Section3">
-          <p class="section3-title">우울한 당신을 위한 추천 아이템</p>
+        <div class="m-Section3 new">
+          <p class="section3-title new">오늘의 기분은 어떤가요?</p>
+          <div>
+            <img src="image/happy.png" alt="">
+            <img src="image/bored.png" alt="">
+            <img src="image/nervous.png" alt="">
+            <img src="image/lonely.png" alt="">
+            <img src="image/sad.png" alt="">
+            <img src="image/angry.png" alt="">
+          </div>
+          <!-- <p class="section3-title">우울한 당신을 위한 추천 아이템</p>
           <ul class="itemList">
             <li class="item"></li>
             <li class="item"></li>
             <li class="item"></li>
             <li class="item"></li>
-          </ul>
+          </ul> -->
         </div>
         <input type="button" name="save" value="저장하기" id="save">
       </div>

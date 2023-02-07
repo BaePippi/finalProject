@@ -9,9 +9,80 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1"
     />
     <link rel="stylesheet" href="css/boardreal2.css" />
-    <title>board1</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- 파비콘 -->
+    <link rel="icon" href="./icon/pavi.ico" />
+    <title>HYFT ˘◡˘</title>
   </head>
   <body>
+    <!--헤더 시작 -->
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <p>How You Feel Today?</p>
+        <div class="header-right">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <a href="login">
+            <i class="fa-solid fa-user"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="bar-menu hidden">
+      <div class="bar-left">
+        <div class="bar-img"></div>
+      </div>
+      <div class="bar-right">
+        <a href="">Shop</a>
+        <a href="">Community</a>
+        <a href="">Brand Story</a>
+        <a href="">Review</a>
+        <a href="">Q & A</a>
+        <div>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+    </div>
+    <div class="cart-menu hidden">
+      <div class="cart-left">
+        <div class="cart-left-title">YOU MAY LIKE</div>
+        <div class="cart-left-box">
+          <div class="cart-left-photo"></div>
+          <p>상품이름</p>
+          <p>가격</p>
+        </div>
+        <div class="cart-left-box">
+          <div class="cart-left-photo"></div>
+          <p>상품이름</p>
+          <p>가격</p>
+        </div>
+      </div>
+      <div class="cart-right">
+        <div class="cart-right-title">
+          CART
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="cart-right-box"></div>
+        <div class="cart-right-box"></div>
+        <div class="cart-right-continue">
+          <p><span>C</span>ONTINUE YOUR ORDER</p>
+        </div>
+      </div>
+    </div>
+    <!-- 헤더 끝 -->
     <!-- 새글쓰기 -->
     <div class="modalAll new displayNone">
       <div class="bg new"></div>
@@ -216,8 +287,8 @@
     </div>
     <!-- 포스트잇 모달 끝-->
     <div id="wrapper">
-      <div id="top-bar">topbar</div>
-      <div id="header">header</div>
+      <!-- <div id="top-bar">topbar</div>
+      <div id="header">header</div> -->
       <div id="container">
         <div id="cardBox">
           <div class="swiper">

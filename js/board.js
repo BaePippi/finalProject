@@ -1,5 +1,47 @@
 (function () {
-  "use strict";
+  ("use strict");
+
+  // 헤더전체 시작
+  const $barIcon = document.querySelector(".fa-bars");
+  const $barMenu = document.querySelector(".bar-menu");
+  const $cartIcon = document.querySelector(".fa-cart-shopping");
+  const $cartMenu = document.querySelector(".cart-menu");
+  const $cartX = document.querySelector(".cart-right-title .fa-xmark");
+
+  $barIcon.addEventListener("click", () => {
+    if ($barMenu.classList.contains("hidden")) {
+      $barMenu.classList.toggle("hidden");
+      $cartMenu.classList.toggle("hidden", true);
+      $barMenu.classList.remove("menu-off");
+      $barMenu.classList.add("menu-on");
+    } else {
+      $barMenu.classList.remove("menu-on");
+      $barMenu.classList.add("menu-off");
+      setTimeout(() => {
+        $barMenu.classList.toggle("hidden");
+        $cartMenu.classList.toggle("hidden", true);
+      }, 1400);
+    }
+  });
+  $cartIcon.addEventListener("click", () => {
+    if ($cartMenu.classList.contains("hidden")) {
+      $cartMenu.classList.toggle("hidden");
+      $barMenu.classList.toggle("hidden", true);
+      $cartMenu.classList.remove("cart-off");
+      $cartMenu.classList.add("cart-on");
+    }
+  });
+  $cartX.addEventListener("click", () => {
+    if (!$cartMenu.classList.contains("hidden")) {
+      $cartMenu.classList.remove("cart-on");
+      $cartMenu.classList.add("cart-off");
+      setTimeout(() => {
+        $cartMenu.classList.toggle("hidden");
+        $barMenu.classList.toggle("hidden", true);
+      }, 900);
+    }
+  });
+  //헤더끝
 
   let vh = window.innerHeight * 0.01;
 
@@ -45,18 +87,18 @@
       clicktag = e.attributes.tag.value;
     }
   });
-  
+
   getData();
   function getData() {
-    let url = `https://baepippi.github.io/finalProject/${clicktag}.json`
+    let url = `https://baepippi.github.io/finalProject/${clicktag}.json`;
     fetch(`${url}`)
-    .then((res) => res.json())
-    .then((res) => {
-      makeDisplay(res);
-      console.log(url)
+      .then((res) => res.json())
+      .then((res) => {
+        makeDisplay(res);
+        console.log(url);
         getData2(res);
       });
-    data = clicktag
+    data = clicktag;
     // makeDisplay(data);
   }
 
@@ -455,7 +497,6 @@ background-image: URL(${modalData.img});"></div>
       $heart.classList.toggle("displayNone");
     });
 
-
     // 이모티콘 드롭다운
 
     const dropdown = document.querySelector(".dropdown");
@@ -474,8 +515,6 @@ background-image: URL(${modalData.img});"></div>
     // dropdown.addEventListener('click',()=>{
     //   dropdownMenu.classList.remove("displayNone");
     // })
-    
-    
 
     // 댓글창 on / off
     const input = document.querySelector(".input");
@@ -549,7 +588,6 @@ background-image: URL(${modalData.img});"></div>
     const imagePreview = document.querySelector(".image-preview");
     const docFrag = new DocumentFragment();
 
-
     // 파일 타입 검사
     [...files].forEach((file) => {
       if (!file.type.match("image/.*")) {
@@ -571,10 +609,8 @@ background-image: URL(${modalData.img});"></div>
   }
 
   function createElement(e, file) {
-    
     upload.setAttribute("src", e.target.result);
     upload.setAttribute("data-file", file.name);
-
   }
 
   const realUpload = document.querySelector(".real-upload");
@@ -584,18 +620,18 @@ background-image: URL(${modalData.img});"></div>
 
   realUpload.addEventListener("change", getImageFiles);
 
-  // let swiper = new Swiper(".swiper", {
-  //   slideToClickedSlide: true,
-  //   spaceBetween: 50,
+  let swiper = new Swiper(".swiper", {
+    slideToClickedSlide: true,
+    spaceBetween: 50,
 
-  //   pagination: { el: ".swiper-pagination" },
+    pagination: { el: ".swiper-pagination" },
 
-  //   scrollbar: { nel: ".swiper-scrollbar" },
-  // });
-  // // 스와이퍼막기
-  // if (window.innerWidth <= 680) {
-  //   swiper.enable();
-  // } else if (window.innerWidth > 680) {
-  //   swiper.disable();
-  // }
+    scrollbar: { nel: ".swiper-scrollbar" },
+  });
+  // 스와이퍼막기
+  if (window.innerWidth <= 680) {
+    swiper.enable();
+  } else if (window.innerWidth > 680) {
+    swiper.disable();
+  }
 })();

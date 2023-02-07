@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap");
 @font-face {
   font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -511,33 +512,10 @@ header {
   overflow: hidden;
 }
 
-#top-bar {
-  height: 2.6vw;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-
-  background: #c9c7bb;
-
-  text-align: center;
-  font-weight: 900;
-  font-size: 2.1vw;
-}
-
-#header {
-  height: 7.8vw;
-
-  background: #fbf9f7;
-
-  text-align: center;
-  font-weight: 900;
-  font-size: 2.1vw;
-}
-
 #container {
   /* width: 66.1vw; */
   /* height: 1146px; */
-  margin: 300px 10vw 0;
+  margin: 200px 10vw 0;
   /* overflow-y: scroll; */
   display: flex;
   flex-direction: column;
@@ -1269,7 +1247,7 @@ dropdown_item-1 {
   height: 50px;
 }
 
-.m-Section3[class~="new"] > div > img:hover{
+.m-Section3[class~="new"] > div > img:hover {
   scale: 1.2;
 }
 
@@ -1287,15 +1265,16 @@ dropdown_item-1 {
 }
 .dropdown[class~="new"]:hover .dropdown_menu[class~="new"] li {
   display: block;
+  background-color: none;
 }
 .dropdown_menu[class~="new"] {
   position: absolute;
-  top: -412%;
+  top: 100%;
   left: 0;
   width: 100%;
   perspective: 1000px;
   z-index: -1;
-
+      height: auto;
   /* background-color: #fff; */
 }
 .dropdown_menu[class~="new"] li {
@@ -1354,36 +1333,35 @@ dropdown_item-1 {
 @-webkit-keyframes slideUp {
   0% {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-60px);
   }
   100% {
     opacity: 1;
-    transform: translateY(-60px);
+    transform: translateY(0px);
   }
 }
 @-o-keyframes slideUp {
   0% {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-60px);
   }
   100% {
     opacity: 1;
-    transform: translateY(-60px);
+    transform: translateY(0px);
   }
 }
 @keyframes slideUp {
   0% {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-60px);
   }
   100% {
     opacity: 1;
-    transform: translateY(-60px);
+    transform: translateY(0px);
   }
 }
 
 /* 드롭끝 */
-
 
 /* 미디어쿼리 */
 
@@ -1473,8 +1451,6 @@ dropdown_item-1 {
     -webkit-line-clamp: 4;
     width: 327px;
     margin: 7px 0 0;
-    /* margin-top: 5px;
-    margin-bottom: 14px; */
     line-height: 20px;
     height: 80px;
   }
@@ -1501,7 +1477,6 @@ dropdown_item-1 {
   }
   .hashtag {
     font-size: 36px;
-
     width: 100%;
     padding-right: 200px;
   }
@@ -1553,8 +1528,7 @@ dropdown_item-1 {
     -webkit-line-clamp: 4;
     width: 65.53vw;
     margin: 1.4vw 0 0;
-    /* margin-top: 1.00vw;
-    margin-bottom: 2.81vw; */
+
     line-height: 4.01vw;
     height: 16.03vw;
   }
@@ -1588,6 +1562,7 @@ dropdown_item-1 {
     display: flex;
     justify-content: flex-start;
   }
+  
 }
 
 /* 모달 미디어쿼리 */
@@ -1595,7 +1570,6 @@ dropdown_item-1 {
 @media (max-width: 600px) {
   #modal {
     width: 100%;
-    /* height: calc(var(--vh, 1vh) * 100); */
     height: 100%;
     position: fixed;
     display: flex;
@@ -1632,15 +1606,12 @@ dropdown_item-1 {
   .modalTitleBox {
     width: 350px;
     height: 40px;
-    /* background-color: aqua; */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* margin-bottom: 20px; */
   }
   .m-title {
     font-weight: 500;
-    /* font-size: 2.33vw; */
     padding: 0.83vw;
     border-bottom: 0.17vw solid #e9ddd4;
     width: 300px;
@@ -1670,9 +1641,7 @@ dropdown_item-1 {
   .m-content {
     width: 100%;
     height: 120px;
-    /* background-color: red; */
     font-weight: 500;
-    /* font-size: 2.00vw; */
     line-height: 20px;
     margin-top: 30px;
   }
@@ -1684,14 +1653,6 @@ dropdown_item-1 {
     height: fit-content;
     margin-bottom: 0;
   }
-  /* .m-Section2 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 3.33vw;
-  margin: 3.33vw 0 50px;
-  width: 75%;
-} */
 
   .zigzag {
     background: url("../image/zigzag.svg") no-repeat left center;
@@ -1749,39 +1710,6 @@ dropdown_item-1 {
     top: 590px;
     left: auto;
   }
-  /* .m-Section4 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 20.00vw;
-  border-top: 0.17vw solid #e9ddd4;
-  margin-top: 1.00vw;
-}
-
-.m-Section4 > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1.00vw;
-  overflow: auto;
-  height: 16.67vw;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.m-Section4 > div::-webkit-scrollbar {
-  display: none;
-} */
-
-  /* .comment {
-  width: 75.00vw;
-  height: 4.17vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-} */
 
   .commentEmoji,
   .inputEmoji {
@@ -1864,5 +1792,76 @@ dropdown_item-1 {
   #save {
     margin-bottom: 80px;
   }
+  .dropdown_menu[class~="new"] {
+    top: -444%;
+    left: -3px;
+  }
 }
-
+/* 푸터시작 */
+footer {
+  background-color: #f6f3ee;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-logo {
+  margin-right: 20%;
+}
+.footer-logo img {
+  width: 200px;
+}
+.footer-word {
+  font-size: 16px;
+}
+.footer-social {
+  margin-top: 50px;
+  font-size: 16px;
+  display: flex;
+}
+.footer-social p:not(:first-child) {
+  padding: 0 20px;
+}
+.footer-social p:first-child {
+  padding-right: 20px;
+}
+.footer-social p:not(:last-child) {
+  border-right: 1px solid black;
+}
+@media (max-width: 834px) {
+  footer {
+    height: 200px;
+  }
+  .footer-logo {
+    margin-right: 10%;
+  }
+  .footer-logo img {
+    width: 150px;
+  }
+  .footer-word {
+    font-size: 14px;
+  }
+  .footer-social {
+    margin-top: 30px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 414px) {
+  footer {
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-evenly;
+  }
+  .footer-logo {
+    margin: 0;
+  }
+  .footer-word {
+    font-size: 12px;
+  }
+  .footer-social {
+    margin-top: 20px;
+    font-size: 12px;
+  }
+}
+/* 푸터끝 */

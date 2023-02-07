@@ -220,8 +220,37 @@
         makeModal();
       }
     });
+    let modalData = "";
   }
-  let modalData = "";
+
+  // 새글쓰기
+  const $addCard = document.querySelector(".addCard");
+  const $newModal = document.querySelector(".modalAll", ".new");
+
+  console.log($newModal);
+  $addCard.addEventListener("click", (e) => {
+    $newModal.classList.remove("displayNone");
+  });
+
+  const close = document.querySelector(".close");
+  const modalDisplay = document.querySelector(".modalAll");
+  close.addEventListener("click", (e) => {
+    modalDisplay.classList.toggle("displayNone", true);
+  });
+  //새글 드롭다운
+  const dropdown = document.querySelector(".dropdown", "new");
+  const dropdownMenu = document.querySelector(".dropdown_menu", "new");
+  const dropList = document.querySelectorAll(".dropdown li", "new");
+  dropdown.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("displayNone");
+    dropList.forEach((item) => {
+      item.style.animationName = "slideUp";
+      item.style.display = "block";
+      // item.addEventListener("click", (e) => {
+      //   dropdown.style.backgroundImage = e.target.style.backgroundImage;
+      // });
+    });
+  });
 
   function makeModal() {
     modalData = JSON.parse(localStorage.getItem("list"));
@@ -512,9 +541,7 @@ background-image: URL(${modalData.img});"></div>
         });
       });
     });
-    // dropdown.addEventListener('click',()=>{
-    //   dropdownMenu.classList.remove("displayNone");
-    // })
+  
 
     // 댓글창 on / off
     const input = document.querySelector(".input");

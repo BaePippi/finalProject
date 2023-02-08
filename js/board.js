@@ -95,17 +95,24 @@
     if (localStorage.getItem("cate")) {
       let $cate = localStorage.getItem("cate");
       url = `https://baepippi.github.io/finalProject/${$cate}.json`;
-
+      let indexA = localStorage.getItem('num')
+    console.log(indexA)
+    for(let i=0; i<6; i++){
+      if(indexA === i) {
+        swiper.slideTo(i, 10);
+      }
+    }
       $tag.forEach((e) => {
-        console.log($cate);
+        
         if ($cate === e.attributes.tag.value) {
-          console.log(clicktag.value === e.attributes.tag.value);
+          
           e.classList.toggle("tagClick", true);
         } else {
           e.classList.toggle("tagClick", false);
         }
         localStorage.removeItem("cate");
       });
+      
     }
     fetch(`${url}`)
       .then((res) => res.json())
@@ -539,7 +546,9 @@
     const dropdown = document.querySelector(".dropdown");
     const dropdownMenu = document.querySelector(".dropdown_menu");
     const dropList = document.querySelectorAll(".dropdown li");
-    dropdown.addEventListener("click", () => {
+    console.log(dropdown)
+    dropdown.addEventListener("click", (e) => {
+      console.log('aa')
       dropdownMenu.classList.toggle("displayNone");
       dropList.forEach((item) => {
         item.style.animationName = "slideDown";
@@ -580,6 +589,19 @@
     const title2 = document.querySelector(".m-title2");
     saveBtn.addEventListener("click", (e) => {
       localStorage.setItem("cate", data.Emoji);
+      if(data.Emoji === 'happy'){
+        localStorage.setItem('num', 0);
+      } else if(data.Emoji === 'bored'){
+        localStorage.setItem('num', 1);
+      } else if(data.Emoji === 'nervous'){
+        localStorage.setItem('num', 2);
+      } else if(data.Emoji === 'lonely'){
+        localStorage.setItem('num', 3);
+      } else if(data.Emoji === 'sad'){
+        localStorage.setItem('num', 4);
+      } else {
+        localStorage.setItem('num', 5);
+      }
     });
     console.dir(saveBtn);
     console.log(data);
@@ -596,7 +618,7 @@
     const close2 = document.querySelector(".close2");
     close2.addEventListener("click", (e) => {
       modalDisplay.classList.toggle("displayNone", true);
-      $wrapper.classList.toggle("fixed");
+      $wrapper.classList.toggle("fixed",false);
       $textArea.value = "";
       title2.value = "";
       smallEmoji.style.backgroundImage = `url(image/happy.png)`;
@@ -753,4 +775,8 @@
   } else if (window.innerWidth > 680) {
     swiper.disable();
   }
+
+  
+
+
 })();

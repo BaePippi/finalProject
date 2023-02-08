@@ -510,7 +510,7 @@
     const modalDisplay = document.querySelector(".modalAll");
     close.addEventListener("click", (e) => {
       modalDisplay.classList.toggle("displayNone", true);
-      $wrapper.classList.toggle("fixed");
+      $wrapper.classList.toggle("fixed",false);
     });
 
     // 하트토글

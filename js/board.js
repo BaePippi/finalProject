@@ -58,6 +58,8 @@
       swiper.disable();
     }
   });
+
+  const $wrapper = document.querySelector("#wrapper");
   // 카테고리 호버
   const $tag = document.querySelectorAll(".hashtag");
   const $cardBox = document.querySelector("#cardBox");
@@ -231,6 +233,7 @@
       if (e.target !== $heart && e.target !== $fillHeart) {
         localStorage.setItem("list", JSON.stringify(item));
         $modalDisplay.classList.toggle("displayNone", false);
+        $wrapper.classList.toggle("fixed");
         makeModal();
       }
     });
@@ -507,6 +510,7 @@
     const modalDisplay = document.querySelector(".modalAll");
     close.addEventListener("click", (e) => {
       modalDisplay.classList.toggle("displayNone", true);
+      $wrapper.classList.toggle("fixed");
     });
 
     // 하트토글
@@ -569,6 +573,7 @@
   }
   function openModal2(data) {
     $newModal.classList.remove("displayNone");
+    $wrapper.classList.toggle("fixed");
     const saveBtn = document.querySelector("#save");
     const modalDisplay = document.querySelector(".modalAll2");
     const $textArea = document.querySelector("#textarea");
@@ -591,6 +596,7 @@
     const close2 = document.querySelector(".close2");
     close2.addEventListener("click", (e) => {
       modalDisplay.classList.toggle("displayNone", true);
+      $wrapper.classList.toggle("fixed");
       $textArea.value = "";
       title2.value = "";
       smallEmoji.style.backgroundImage = `url(image/happy.png)`;
@@ -671,7 +677,7 @@
       span.addEventListener("click", (e) => {
         page = i;
         makeList();
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
     }
   }

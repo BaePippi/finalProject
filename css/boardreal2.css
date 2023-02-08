@@ -499,11 +499,17 @@ header {
 }
 
 .selected {
-  color: red;
+  color: #e9ddd4;
 }
 
 .displayNone {
   display: none !important;
+}
+.fixed {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 #wrapper {
@@ -673,6 +679,10 @@ header {
 }
 
 #paging {
+  display: flex;
+  width: 200px;
+  gap: 10px;
+  justify-content: center;
   margin-bottom: 135px;
   text-align: center;
   font-weight: 600;
@@ -701,21 +711,25 @@ header {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 }
-.modal::-webkit-scrollbar,.modal2::-webkit-scrollbar {
+.modal::-webkit-scrollbar,
+.modal2::-webkit-scrollbar {
   width: 8px; /* 스크롤바의 너비 */
 }
 
-.modal ::-webkit-scrollbar-thumb,.modal2 ::-webkit-scrollbar-thumb {
+.modal ::-webkit-scrollbar-thumb,
+.modal2 ::-webkit-scrollbar-thumb {
   height: 30%; /* 스크롤바의 길이 */
   background: #e9ddd4; /* 스크롤바의 색상 */
 
   border-radius: 10px;
 }
 
-.modal ::-webkit-scrollbar-track,.modal ::-webkit-scrollbar-track {
+.modal ::-webkit-scrollbar-track,
+.modal ::-webkit-scrollbar-track {
   background: #f6f3ee; /*스크롤바 뒷 배경 색상*/
 }
-.modal, .modal2 {
+.modal,
+.modal2 {
   width: 530px;
   height: 700px;
   position: fixed;
@@ -740,7 +754,8 @@ header {
   background-size: contain;
 }
 
-.close, .close2 {
+.close,
+.close2 {
   position: absolute;
   top: 30px;
   right: 30px;
@@ -777,7 +792,8 @@ header {
   justify-content: space-between;
   margin-bottom: 10px;
 }
-.m-title, .m-title2 {
+.m-title,
+.m-title2 {
   font-weight: 500;
   font-size: 14px;
   padding: 5px;
@@ -1275,7 +1291,7 @@ dropdown_item-1 {
   width: 100%;
   perspective: 1000px;
   z-index: -1;
-      height: auto;
+  height: auto;
   /* background-color: #fff; */
 }
 .dropdown_menu[class~="new"] li {
@@ -1563,13 +1579,13 @@ dropdown_item-1 {
     display: flex;
     justify-content: flex-start;
   }
-  
 }
 
 /* 모달 미디어쿼리 */
 
 @media (max-width: 600px) {
-  .modal, .modal2 {
+  .modal,
+  .modal2 {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -1611,7 +1627,8 @@ dropdown_item-1 {
     align-items: center;
     justify-content: space-between;
   }
-  .m-title, .m-title2 {
+  .m-title,
+  .m-title2 {
     font-weight: 500;
     padding: 0.83vw;
     border-bottom: 0.17vw solid #e9ddd4;

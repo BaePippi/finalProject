@@ -225,11 +225,11 @@
 
   // 새글쓰기
   const $addCard = document.querySelector(".addCard");
-  const $newModal = document.querySelector(".modalAll", ".new");
+  const $newModal = document.querySelector(".modalAll2");
 
   console.log($newModal);
   $addCard.addEventListener("click", (e) => {
-    openModal2();
+    openModal2(null);
     // $newModal.classList.remove("displayNone");
   });
 
@@ -257,7 +257,7 @@
     <div>
     <div class="m-hashtag">
     <div class="zigzag">
-    <p>#${modalData.Emoji}</p>
+    <p>#${modalData.Emoji.toUpperCase()}</p>
     </div>
     </div>
     <img
@@ -509,12 +509,11 @@
     });
 
     // 수정
-
     const $edit = document.querySelector(".edit");
     console.log($edit);
     $edit.addEventListener("click", (e) => {
       modalDisplay.classList.toggle("displayNone", true);
-      // openModal2();
+      openModal2(modalData);
     });
 
     // 이모티콘 드롭다운
@@ -532,36 +531,55 @@
         });
       });
     });
-
+    
     // 댓글창 on / off
     const input = document.querySelector(".input");
     const mSection4 = document.querySelector(".m-Section4");
     const inputClose = document.querySelector(".inputClose");
     const mSection2 = document.querySelector(".m-Section2");
-
+    
     mSection2.addEventListener("click", (e) => {
       mSection4.classList.toggle("displayNone", false);
       inputClose.classList.toggle("displayNone", false);
     });
-
+    
     input.addEventListener("click", (e) => {
       mSection4.classList.toggle("displayNone", false);
       inputClose.classList.toggle("displayNone", false);
     });
-
+    
     inputClose.addEventListener("click", (e) => {
       mSection4.classList.toggle("displayNone", true);
       inputClose.classList.toggle("displayNone", true);
     });
   }
-  function openModal2() {
+  function openModal2(data) {
     $newModal.classList.remove("displayNone");
-    const close = document.querySelector(".close");
-    const modalDisplay = document.querySelector(".modalAll");
-    close.addEventListener("click", (e) => {
-      modalDisplay.classList.toggle("displayNone", true);
+    const saveBtn = document.querySelector("#save");
+    const modalDisplay = document.querySelector(".modalAll2");
+    const $textArea = document.querySelector("#textarea");
+    const title2 = document.querySelector(".m-title2");
+    console.log(data)
+    console.dir(title2)
+    console.log(saveBtn);
+    console.dir($textArea);
+    $textArea.addEventListener("input", (e) => {
+      if ($textArea.value) {
+        saveBtn.style.color = "#000000";
+      } else {
+        saveBtn.style.color = "#c9c7bb";
+      }
     });
-
+    const close2 = document.querySelector(".close2");
+    close2.addEventListener("click", (e) => {
+      modalDisplay.classList.toggle("displayNone", true);
+      $textArea.value ='';
+      title2.value = '';
+      smallEmoji.style.backgroundImage = `url(image/happy.png)`;
+      dropdown.firstChild.textContent = `#HAPPY`;
+      img.src = 'image/addImg.png';
+    });
+    
     //새글 드롭다운
     const dropdown = document.querySelector(".dropdown", ".new");
     const dropdownMenu = document.querySelector(".dropdown_menu", ".new");
@@ -577,11 +595,12 @@
         });
       });
     });
-
+    
     // 캐릭터 클릭
     const newEmoji = document.querySelectorAll(".selectEmoji img");
     const smallEmoji = document.querySelector(".m-emoji", "new");
-
+    const img = document.querySelector(".modalContentBox img");
+    
     newEmoji.forEach((img) => {
       img.addEventListener("click", (e) => {
         console.dir(smallEmoji.style.backgroundImage);
@@ -590,20 +609,30 @@
       });
     });
 
-    // 저장하기 텍스트 색 변경
-    const saveBtn = document.querySelector("#save");
-    const $textArea = document.querySelector("#textarea");
-    console.log(saveBtn);
-    console.dir($textArea);
-    $textArea.addEventListener("input", (e) => {
-      if ($textArea.value) {
-        saveBtn.style.color = "#000000";
-      } else {
-        saveBtn.style.color = "#c9c7bb";
+    // 수정하기 클릭해서 글쓰기창 켜졌을때 데이터 가져오기
+    if(data){
+      const str = removeHTML(data.content);
+      console.log(img)
+      
+      function removeHTML(text){
+        text = text.replace(/(<br>|<br\/>|<br \/>)/g, "\r\n");
+        text = text.replace(
+          /<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/gi,
+          ""
+        );
+        return text
       }
-    });
+      console.log(str)
+      $textArea.innerHTML = str;
+      title2.value=data.title;
+      smallEmoji.style.backgroundImage = `url(image/${data.Emoji}.png)`;
+      dropdown.firstChild.textContent = `#${data.Emoji.toUpperCase()}`;
+      img.src = data.img;
+      console.dir(smallEmoji);
+    }
+    // 저장하기 텍스트 색 변경
   }
-
+  
   function changeSelected() {
     const pageSpanList = document.querySelectorAll(".page");
     pageSpanList.forEach((item) => {
@@ -611,7 +640,7 @@
       item.classList.toggle("selected", page === innerNum);
     });
   }
-
+  
   function makePaging(maxPage) {
     for (let i = 1; i <= maxPage; i++) {
       const span = document.createElement("span");

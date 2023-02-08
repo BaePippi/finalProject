@@ -701,21 +701,21 @@ header {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 }
-.modal ::-webkit-scrollbar {
+.modal::-webkit-scrollbar,.modal2::-webkit-scrollbar {
   width: 8px; /* 스크롤바의 너비 */
 }
 
-.modal ::-webkit-scrollbar-thumb {
+.modal ::-webkit-scrollbar-thumb,.modal2 ::-webkit-scrollbar-thumb {
   height: 30%; /* 스크롤바의 길이 */
   background: #e9ddd4; /* 스크롤바의 색상 */
 
   border-radius: 10px;
 }
 
-.modal ::-webkit-scrollbar-track {
+.modal ::-webkit-scrollbar-track,.modal ::-webkit-scrollbar-track {
   background: #f6f3ee; /*스크롤바 뒷 배경 색상*/
 }
-.modal {
+.modal, .modal2 {
   width: 530px;
   height: 700px;
   position: fixed;
@@ -740,7 +740,7 @@ header {
   background-size: contain;
 }
 
-.close {
+.close, .close2 {
   position: absolute;
   top: 30px;
   right: 30px;
@@ -777,7 +777,7 @@ header {
   justify-content: space-between;
   margin-bottom: 10px;
 }
-.m-title {
+.m-title, .m-title2 {
   font-weight: 500;
   font-size: 14px;
   padding: 5px;
@@ -1173,7 +1173,7 @@ dropdown_item-1 {
 }
 
 /* 새글쓰기 */
-.m-title[class~="new"] {
+.m-title2 {
   font-weight: 500;
   font-size: 14px;
   padding: 5px;
@@ -1181,7 +1181,7 @@ dropdown_item-1 {
   border-bottom: 1px solid #e9ddd4;
   width: 430px;
 }
-.m-title[class~="new"]:focus {
+.m-title2:focus {
   outline: none;
 }
 
@@ -1569,7 +1569,7 @@ dropdown_item-1 {
 /* 모달 미디어쿼리 */
 
 @media (max-width: 600px) {
-  .modal {
+  .modal, .modal2 {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -1611,7 +1611,7 @@ dropdown_item-1 {
     align-items: center;
     justify-content: space-between;
   }
-  .m-title {
+  .m-title, .m-title2 {
     font-weight: 500;
     padding: 0.83vw;
     border-bottom: 0.17vw solid #e9ddd4;
@@ -1786,7 +1786,7 @@ dropdown_item-1 {
     margin-top: 90px;
   }
 
-  .m-title[class~="new"] {
+  .m-title2 {
     width: 300px;
   }
 

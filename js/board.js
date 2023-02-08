@@ -87,10 +87,24 @@
       clicktag = e.attributes.tag.value;
     }
   });
-
-  getData();
+  window.addEventListener("onbeforeunload", getData());
   function getData() {
     let url = `https://baepippi.github.io/finalProject/${clicktag}.json`;
+    if (localStorage.getItem("cate")) {
+      let $cate = localStorage.getItem("cate");
+      url = `https://baepippi.github.io/finalProject/${$cate}.json`;
+
+      $tag.forEach((e) => {
+        console.log($cate);
+        if ($cate === e.attributes.tag.value) {
+          console.log(clicktag.value === e.attributes.tag.value);
+          e.classList.toggle("tagClick", true);
+        } else {
+          e.classList.toggle("tagClick", false);
+        }
+        localStorage.removeItem("cate");
+      });
+    }
     fetch(`${url}`)
       .then((res) => res.json())
       .then((res) => {
@@ -98,6 +112,7 @@
         getData2(res);
       });
     data = clicktag;
+    console.log(data);
     // makeDisplay(data);
   }
 
@@ -530,23 +545,23 @@
         });
       });
     });
-    
+
     // 댓글창 on / off
     const input = document.querySelector(".input");
     const mSection4 = document.querySelector(".m-Section4");
     const inputClose = document.querySelector(".inputClose");
     const mSection2 = document.querySelector(".m-Section2");
-    
+
     mSection2.addEventListener("click", (e) => {
       mSection4.classList.toggle("displayNone", false);
       inputClose.classList.toggle("displayNone", false);
     });
-    
+
     input.addEventListener("click", (e) => {
       mSection4.classList.toggle("displayNone", false);
       inputClose.classList.toggle("displayNone", false);
     });
-    
+
     inputClose.addEventListener("click", (e) => {
       mSection4.classList.toggle("displayNone", true);
       inputClose.classList.toggle("displayNone", true);
@@ -558,8 +573,12 @@
     const modalDisplay = document.querySelector(".modalAll2");
     const $textArea = document.querySelector("#textarea");
     const title2 = document.querySelector(".m-title2");
-    console.log(data)
-    console.dir(title2)
+    saveBtn.addEventListener("click", (e) => {
+      localStorage.setItem("cate", data.Emoji);
+    });
+    console.dir(saveBtn);
+    console.log(data);
+    console.dir(title2);
     console.log(saveBtn);
     console.dir($textArea);
     $textArea.addEventListener("input", (e) => {
@@ -572,13 +591,13 @@
     const close2 = document.querySelector(".close2");
     close2.addEventListener("click", (e) => {
       modalDisplay.classList.toggle("displayNone", true);
-      $textArea.value ='';
-      title2.value = '';
+      $textArea.value = "";
+      title2.value = "";
       smallEmoji.style.backgroundImage = `url(image/happy.png)`;
       dropdown.firstChild.textContent = `#HAPPY`;
-      img.src = 'image/addImg.png';
+      img.src = "image/addImg.png";
     });
-    
+
     //새글 드롭다운
     const dropdown = document.querySelector(".dropdown", ".new");
     const dropdownMenu = document.querySelector(".dropdown_menu", ".new");
@@ -594,12 +613,12 @@
         });
       });
     });
-    
+
     // 캐릭터 클릭
     const newEmoji = document.querySelectorAll(".selectEmoji img");
     const smallEmoji = document.querySelector(".m-emoji", "new");
     const img = document.querySelector(".modalContentBox img");
-    
+
     newEmoji.forEach((img) => {
       img.addEventListener("click", (e) => {
         console.dir(smallEmoji.style.backgroundImage);
@@ -609,21 +628,21 @@
     });
 
     // 수정하기 클릭해서 글쓰기창 켜졌을때 데이터 가져오기
-    if(data){
+    if (data) {
       const str = removeHTML(data.content);
-      console.log(img)
-      
-      function removeHTML(text){
+      console.log(img);
+
+      function removeHTML(text) {
         text = text.replace(/(<br>|<br\/>|<br \/>)/g, "\r\n");
         text = text.replace(
           /<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/gi,
           ""
         );
-        return text
+        return text;
       }
-      console.log(str)
+      console.log(str);
       $textArea.value = str;
-      title2.value=data.title;
+      title2.value = data.title;
       smallEmoji.style.backgroundImage = `url(image/${data.Emoji}.png)`;
       dropdown.firstChild.textContent = `#${data.Emoji.toUpperCase()}`;
       img.src = data.img;
@@ -631,7 +650,7 @@
     }
     // 저장하기 텍스트 색 변경
   }
-  
+
   function changeSelected() {
     const pageSpanList = document.querySelectorAll(".page");
     pageSpanList.forEach((item) => {
@@ -639,7 +658,7 @@
       item.classList.toggle("selected", page === innerNum);
     });
   }
-  
+
   function makePaging(maxPage) {
     for (let i = 1; i <= maxPage; i++) {
       const span = document.createElement("span");

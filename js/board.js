@@ -95,7 +95,6 @@
       .then((res) => res.json())
       .then((res) => {
         makeDisplay(res);
-        console.log(url);
         getData2(res);
       });
     data = clicktag;
@@ -623,7 +622,7 @@
         return text
       }
       console.log(str)
-      $textArea.innerHTML = str;
+      $textArea.value = str;
       title2.value=data.title;
       smallEmoji.style.backgroundImage = `url(image/${data.Emoji}.png)`;
       dropdown.firstChild.textContent = `#${data.Emoji.toUpperCase()}`;

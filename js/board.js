@@ -233,14 +233,14 @@
     //     $heart[i].classList.toggle("displayNone");
     //   });
     // }
-
+    console.log(item)
     const $modalDisplay = document.querySelector(".modalAll");
     $card.addEventListener("click", (e) => {
       if (e.target !== $heart && e.target !== $fillHeart) {
-        localStorage.setItem("list", JSON.stringify(item));
+        // localStorage.setItem("list", JSON.stringify(item));
         $modalDisplay.classList.toggle("displayNone", false);
         $wrapper.classList.toggle("fixed", true);
-        makeModal();
+        makeModal(item);
       }
     });
     let modalData = "";
@@ -256,8 +256,9 @@
     // $newModal.classList.remove("displayNone");
   });
 
-  function makeModal() {
-    modalData = JSON.parse(localStorage.getItem("list"));
+  function makeModal(item) {
+    modalData = item;
+    // modalData = JSON.parse(localStorage.getItem("list"));
     const $modal = document.querySelector(".modal");
     console.log($modal);
     // const change = modalData.Emoji.toUpperCase();
@@ -676,6 +677,7 @@
       dropdown.firstChild.textContent = `#${data.Emoji.toUpperCase()}`;
       console.dir(smallEmoji);
       $wrapper.classList.toggle("fixed", true);
+      saveBtn.style.color = "#000000";
     }
     // 저장하기 텍스트 색 변경
   }

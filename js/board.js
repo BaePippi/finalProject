@@ -1,14 +1,17 @@
 (function () {
   ("use strict");
 
-  
-
   // 헤더전체 시작
   const $barIcon = document.querySelector(".fa-bars");
   const $barMenu = document.querySelector(".bar-menu");
   const $cartIcon = document.querySelector(".fa-cart-shopping");
   const $cartMenu = document.querySelector(".cart-menu");
   const $cartX = document.querySelector(".cart-right-title .fa-xmark");
+
+  let beforeSelectedIdx = false;
+  window.addEventListener("load", () => {
+    beforeSelectedIdx = localStorage.getItem("num");
+  });
 
   $barIcon.addEventListener("click", () => {
     if ($barMenu.classList.contains("hidden")) {
@@ -56,7 +59,7 @@
     if (window.innerWidth <= 680) {
       swiper.enable();
     } else if (window.innerWidth > 680) {
-      swiper.slideTo(0, 0);
+      swiper.slideTo(0);
       swiper.disable();
     }
   });
@@ -92,18 +95,12 @@
     }
   });
   window.addEventListener("onbeforeunload", getData());
+
   function getData() {
     let url = `https://baepippi.github.io/finalProject/${clicktag}.json`;
     if (localStorage.getItem("cate")) {
       let $cate = localStorage.getItem("cate");
       url = `https://baepippi.github.io/finalProject/${$cate}.json`;
-      let indexA = localStorage.getItem("num");
-      console.log(indexA);
-      for (let i = 0; i < 6; i++) {
-        if (indexA === i) {
-          swiper.slideTo(i, 10);
-        }
-      }
       $tag.forEach((e) => {
         if ($cate === e.attributes.tag.value) {
           e.classList.toggle("tagClick", true);
@@ -131,6 +128,7 @@
       e.addEventListener("click", (e) => {
         e.target.classList.toggle("tagClick", true);
         clicktag = e.target.attributes.tag.value;
+
         page = 1;
         for (let i = 0; i < $tag.length; i++) {
           if (e.target != $tag[i]) {
@@ -233,7 +231,7 @@
     //     $heart[i].classList.toggle("displayNone");
     //   });
     // }
-    console.log(item)
+
     const $modalDisplay = document.querySelector(".modalAll");
     $card.addEventListener("click", (e) => {
       if (e.target !== $heart && e.target !== $fillHeart) {
@@ -543,7 +541,7 @@
     });
 
     // 이모티콘 드롭다운
-    
+
     const dropdown2 = document.querySelector(".dropdown");
     const dropdownMenu2 = document.querySelector(".dropdown_menu");
     const dropList2 = document.querySelectorAll(".dropdown li");
@@ -675,7 +673,7 @@
       smallEmoji.style.backgroundImage = `url(image/${data.Emoji}.png)`;
       img.src = data.img;
       dropdown.firstChild.textContent = `#${data.Emoji.toUpperCase()}`;
-      console.dir(smallEmoji);
+
       $wrapper.classList.toggle("fixed", true);
       saveBtn.style.color = "#000000";
     }
@@ -778,4 +776,9 @@
   } else if (window.innerWidth > 680) {
     swiper.disable();
   }
+
+  
+  let indexA = localStorage.getItem("num");
+  swiper.slideTo(indexA);
+  localStorage.removeItem("num");
 })();

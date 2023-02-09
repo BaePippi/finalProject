@@ -95,24 +95,21 @@
     if (localStorage.getItem("cate")) {
       let $cate = localStorage.getItem("cate");
       url = `https://baepippi.github.io/finalProject/${$cate}.json`;
-      let indexA = localStorage.getItem('num')
-    console.log(indexA)
-    for(let i=0; i<6; i++){
-      if(indexA === i) {
-        swiper.slideTo(i, 10);
+      let indexA = localStorage.getItem("num");
+      console.log(indexA);
+      for (let i = 0; i < 6; i++) {
+        if (indexA === i) {
+          swiper.slideTo(i, 10);
+        }
       }
-    }
       $tag.forEach((e) => {
-        
         if ($cate === e.attributes.tag.value) {
-          
           e.classList.toggle("tagClick", true);
         } else {
           e.classList.toggle("tagClick", false);
         }
         localStorage.removeItem("cate");
       });
-      
     }
     fetch(`${url}`)
       .then((res) => res.json())
@@ -260,6 +257,7 @@
   function makeModal() {
     modalData = JSON.parse(localStorage.getItem("list"));
     const $modal = document.querySelector(".modal");
+    console.log($modal);
     // const change = modalData.Emoji.toUpperCase();
     // console.log(change);
 
@@ -517,7 +515,7 @@
     const modalDisplay = document.querySelector(".modalAll");
     close.addEventListener("click", (e) => {
       modalDisplay.classList.toggle("displayNone", true);
-      $wrapper.classList.toggle("fixed",false);
+      $wrapper.classList.toggle("fixed", false);
     });
 
     // 하트토글
@@ -542,19 +540,19 @@
     });
 
     // 이모티콘 드롭다운
-
-    const dropdown = document.querySelector(".dropdown");
-    const dropdownMenu = document.querySelector(".dropdown_menu");
-    const dropList = document.querySelectorAll(".dropdown li");
-    console.log(dropdown)
-    dropdown.addEventListener("click", (e) => {
-      console.log('aa')
-      dropdownMenu.classList.toggle("displayNone");
-      dropList.forEach((item) => {
+    
+    const dropdown2 = document.querySelector(".dropdown");
+    const dropdownMenu2 = document.querySelector(".dropdown_menu");
+    const dropList2 = document.querySelectorAll(".dropdown li");
+    console.log(dropdown2);
+    dropdown2.addEventListener("click", (e) => {
+      console.log("aa");
+      dropdownMenu2.classList.toggle("displayNone");
+      dropList2.forEach((item) => {
         item.style.animationName = "slideDown";
         item.style.display = "block";
         item.addEventListener("click", (e) => {
-          dropdown.style.backgroundImage = e.target.style.backgroundImage;
+          dropdown2.style.backgroundImage = e.target.style.backgroundImage;
         });
       });
     });
@@ -589,18 +587,18 @@
     const title2 = document.querySelector(".m-title2");
     saveBtn.addEventListener("click", (e) => {
       localStorage.setItem("cate", data.Emoji);
-      if(data.Emoji === 'happy'){
-        localStorage.setItem('num', 0);
-      } else if(data.Emoji === 'bored'){
-        localStorage.setItem('num', 1);
-      } else if(data.Emoji === 'nervous'){
-        localStorage.setItem('num', 2);
-      } else if(data.Emoji === 'lonely'){
-        localStorage.setItem('num', 3);
-      } else if(data.Emoji === 'sad'){
-        localStorage.setItem('num', 4);
+      if (data.Emoji === "happy") {
+        localStorage.setItem("num", 0);
+      } else if (data.Emoji === "bored") {
+        localStorage.setItem("num", 1);
+      } else if (data.Emoji === "nervous") {
+        localStorage.setItem("num", 2);
+      } else if (data.Emoji === "lonely") {
+        localStorage.setItem("num", 3);
+      } else if (data.Emoji === "sad") {
+        localStorage.setItem("num", 4);
       } else {
-        localStorage.setItem('num', 5);
+        localStorage.setItem("num", 5);
       }
     });
     console.dir(saveBtn);
@@ -618,7 +616,7 @@
     const close2 = document.querySelector(".close2");
     close2.addEventListener("click", (e) => {
       modalDisplay.classList.toggle("displayNone", true);
-      $wrapper.classList.toggle("fixed",false);
+      $wrapper.classList.toggle("fixed", false);
       $textArea.value = "";
       title2.value = "";
       smallEmoji.style.backgroundImage = `url(image/happy.png)`;
@@ -627,9 +625,9 @@
     });
 
     //새글 드롭다운
-    const dropdown = document.querySelector(".dropdown", ".new");
-    const dropdownMenu = document.querySelector(".dropdown_menu", ".new");
-    const dropList = document.querySelectorAll(".dropdown li", ".new");
+    const dropdown = document.querySelector(".dropdown2", ".new");
+    const dropdownMenu = document.querySelector(".dropdown_menu2", ".new");
+    const dropList = document.querySelectorAll(".dropdown2 li", ".new");
     dropdown.addEventListener("click", (e) => {
       dropdownMenu.classList.toggle("displayNone");
       dropList.forEach((item) => {
@@ -672,8 +670,8 @@
       $textArea.value = str;
       title2.value = data.title;
       smallEmoji.style.backgroundImage = `url(image/${data.Emoji}.png)`;
-      dropdown.firstChild.textContent = `#${data.Emoji.toUpperCase()}`;
       img.src = data.img;
+      dropdown.firstChild.textContent = `#${data.Emoji.toUpperCase()}`;
       console.dir(smallEmoji);
     }
     // 저장하기 텍스트 색 변경
@@ -775,8 +773,4 @@
   } else if (window.innerWidth > 680) {
     swiper.disable();
   }
-
-  
-
-
 })();

@@ -1,6 +1,8 @@
 (function () {
   ("use strict");
 
+  
+
   // 헤더전체 시작
   const $barIcon = document.querySelector(".fa-bars");
   const $barMenu = document.querySelector(".bar-menu");
@@ -237,7 +239,7 @@
       if (e.target !== $heart && e.target !== $fillHeart) {
         localStorage.setItem("list", JSON.stringify(item));
         $modalDisplay.classList.toggle("displayNone", false);
-        $wrapper.classList.toggle("fixed");
+        $wrapper.classList.toggle("fixed", true);
         makeModal();
       }
     });
@@ -673,6 +675,7 @@
       img.src = data.img;
       dropdown.firstChild.textContent = `#${data.Emoji.toUpperCase()}`;
       console.dir(smallEmoji);
+      $wrapper.classList.toggle("fixed", true);
     }
     // 저장하기 텍스트 색 변경
   }

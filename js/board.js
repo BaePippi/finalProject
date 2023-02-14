@@ -762,10 +762,26 @@
 
   realUpload.addEventListener("change", getImageFiles);
 
-  let swiper = new Swiper(".swiper", {
+  let swiper = new Swiper(".swiper1", {
     slideToClickedSlide: true,
     spaceBetween: 50,
 
+    pagination: { el: ".swiper-pagination" },
+
+    scrollbar: { nel: ".swiper-scrollbar" },
+  });
+  let swiper2 = new Swiper(".banner.swiper", {
+    slideToClickedSlide: true,
+    spaceBetween: 30,
+    // slidesPerView: 1,
+    // autoplay: {
+    //   delay: 2500,
+
+    //   disableOnInteraction: false,
+    // },
+    // loop: false,
+
+    loopAdditionalSlides: 1,
     pagination: { el: ".swiper-pagination" },
 
     scrollbar: { nel: ".swiper-scrollbar" },
@@ -777,7 +793,6 @@
     swiper.disable();
   }
 
-  
   let indexA = localStorage.getItem("num");
   swiper.slideTo(indexA);
   localStorage.removeItem("num");

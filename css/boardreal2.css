@@ -1909,6 +1909,7 @@ footer {
 /* 푸터끝 */
 .banner {
   margin-top: 100px;
+  width: 1920px;
   height: 300px;
 }
 .banner1 {

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .banner {
+        margin-top: 100px;
+        width: 3840px;
+        height: 300px;
+      }
+      .banner-wrap {
+        display: flex;
+      }
+      .banner1 {
+        width: 1920px;
+        height: 300px;
+        background: url("../image/banner4.png") no-repeat center;
+      }
+      .banner2 {
+        width: 1920px;
+        height: 300px;
+        background: url("../image/banner5.png") no-repeat center;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="banner swiper">
+      <div class="swiper-wrapper banner-wrap">
+        <div class="swiper-slide banner1"></div>
+        <div class="swiper-slide banner2"></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+      let swiper2 = new Swiper(".banner.swiper", {
+        slideToClickedSlide: true,
+        slidesPerView: 1,
+        autoplay: {
+          delay: 2500,
+
+          disableOnInteraction: false,
+        },
+        loop: false,
+
+        loopAdditionalSlides: 1,
+
+        pagination: { el: ".swiper-pagination" },
+
+        scrollbar: { nel: ".swiper-scrollbar" },
+      });
+    </script>
+  </body>
+</html>

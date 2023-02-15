@@ -796,8 +796,19 @@
   } else if (window.innerWidth > 680) {
     swiper.disable();
   }
-
+  // 배너 마우스오버시 swiper 자동재생 멈춤 
+  const banner = document.querySelectorAll(".banner");
+  console.log(banner)
+  banner.forEach(item=>{
+    item.addEventListener("mouseover", function () {
+      swiper2.autoplay.stop();
+    });
+    item.addEventListener("mouseout", function () {
+      swiper2.autoplay.start();
+    });
+  })
   let indexA = localStorage.getItem("num");
   swiper.slideTo(indexA);
   localStorage.removeItem("num");
+
 })();

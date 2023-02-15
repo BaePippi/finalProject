@@ -568,6 +568,7 @@ header {
   height: 100%;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 
 .bannerInner {
@@ -755,6 +756,7 @@ header {
   font-weight: 600;
   font-size: 18px;
   line-height: 21px;
+  cursor: pointer;
 }
 
 /* 푸터 */
@@ -874,6 +876,9 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.m-emoji.new {
+  cursor: pointer;
+}
 .modalMainImg {
   width: 174px;
   height: 169px;
@@ -936,6 +941,9 @@ header {
   font-size: 12px;
   color: #c9c7bb;
 }
+.m-Section2 p{
+  cursor: pointer;
+}
 
 .m-heart,
 .m-fillHeart {
@@ -972,6 +980,7 @@ header {
   height: 80px;
   background: url("../image/productImg/bear1-7.jpg") no-repeat;
   background-size: cover;
+  cursor: pointer;
 }
 
 .m-Section4 {
@@ -1222,7 +1231,7 @@ dropdown_item-1 {
   outline: none;
 }
 
-.commentInput p:last-of-type {
+.save {
   font-size: 12px;
   font-weight: 400;
   color: #c9c7bb;
@@ -1230,6 +1239,7 @@ dropdown_item-1 {
   /* text-align: center; */
   padding-top: 14px;
   /* margin-right: 10px; */
+  cursor: pointer;
 }
 
 .m-Section5 {
@@ -1244,6 +1254,7 @@ dropdown_item-1 {
   text-align: end;
   font-size: 12px;
   color: #c9c7bb;
+  cursor: pointer;
 }
 #save {
   width: 60px;
@@ -1862,7 +1873,7 @@ dropdown_item-1 {
     color: #c9c7bb;
   }
 
-  .commentInput p:last-of-type {
+  .save {
     font-weight: 400;
     color: #c9c7bb;
   }

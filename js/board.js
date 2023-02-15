@@ -773,11 +773,13 @@
   let swiper2 = new Swiper(".banner.swiper", {
     slidesPerView: 1,
     spaceBetween: 30,
+    speed: 1000,
     autoplay: {
       //자동슬라이드 (false-비활성화)
-      delay: 2500, // 시간 설정
+      delay: 2000, // 시간 설정
       disableOnInteraction: false, // false-스와이프 후 자동 재생
     },
+    effect: "fade",
     loop: true,
     pagination: {
       el: ".swiper-pagination",

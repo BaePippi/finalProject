@@ -771,20 +771,22 @@
     scrollbar: { nel: ".swiper-scrollbar" },
   });
   let swiper2 = new Swiper(".banner.swiper", {
-    slideToClickedSlide: true,
+    slidesPerView: 1,
     spaceBetween: 30,
-    slidesPerView: "auto",
     autoplay: {
-      delay: 2500,
-
-      disableOnInteraction: false,
+      //자동슬라이드 (false-비활성화)
+      delay: 2500, // 시간 설정
+      disableOnInteraction: false, // false-스와이프 후 자동 재생
     },
-    // loop: false,
-
-    // loopAdditionalSlides: 1,
-    pagination: { el: ".swiper-pagination" },
-
-    scrollbar: { nel: ".swiper-scrollbar" },
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
   // 스와이퍼막기
   if (window.innerWidth <= 680) {

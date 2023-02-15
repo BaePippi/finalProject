@@ -177,7 +177,7 @@
     $card.id = item.id;
     $card.innerHTML = `
     <img class="tape" src="image/tape.svg" alt="" />
-    <div class="box">
+    <div class="box fold">
     <div class="titleBox">
     <div class="title">${item.title}</div>
     <img class="cardEmoji" src="image/${item.Emoji}.png" alt="" />

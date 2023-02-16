@@ -657,32 +657,40 @@ header {
   box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.15);
   padding: 60px 20px 20px;
 }
-.fold {
-        position: relative;
-      }
-      .fold:hover:after {
-        content: "";
-        position: absolute;
-        bottom: 0%;
-        right: 0%;
-        width: 0px;
-        height: 0px;
-        border-bottom: 80px solid #fbf9f7;
-        border-left: 80px solid transparent;
-      }
-      .fold:hover:before {
-        content: "";
-        position: absolute;
-        bottom: 0%;
-        right: 0%;
-        width: 0px;
-        height: 0px;
-        border-bottom: 80px solid transparent;
-        border-left: 80px solid #f6f6f6;
-        -webkit-box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.3);
-        -moz-box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.3);
-        box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.15);
-      }
+
+.box::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  background-color: white;
+  transition: all 0.5s;
+}
+
+.box:hover::after {
+  border-bottom: 80px solid #fbf9f7;
+  border-left: 80px solid transparent;
+}
+.box::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  background-color: white;
+  transition: all 0.5s;
+  box-shadow: 0px 0px 0px rgb(255, 255, 255);
+}
+.box:hover::before {
+  border-bottom: 80px solid transparent;
+  border-left: 80px solid #f6f6f6;
+  -webkit-box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.15);
+}
 
 .plus {
   padding: 30px;
@@ -941,7 +949,7 @@ header {
   font-size: 12px;
   color: #c9c7bb;
 }
-.m-Section2 p{
+.m-Section2 p {
   cursor: pointer;
 }
 

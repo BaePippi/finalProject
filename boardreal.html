@@ -9,6 +9,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1"
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/boardreal2.css" />
     <link
       rel="stylesheet"
@@ -32,7 +33,7 @@
     <title>HYFT ˘◡˘</title>
   </head>
   <body>
-    <!--헤더 시작 -->
+    <!-- 헤더시작 -->
     <header>
       <div class="header-container">
         <div class="header-left">
@@ -41,22 +42,29 @@
         <p>How You Feel Today?</p>
         <div class="header-right">
           <i class="fa-solid fa-cart-shopping"></i>
-          <a href="login">
+          <a href="/login">
             <i class="fa-solid fa-user"></i>
           </a>
         </div>
       </div>
     </header>
+    <div class="header-under">
+      <ul class="header-under-ul">
+        <li><a href="/product">shop</a></li>
+        <li><a href="/board">Community</a></li>
+        <li><a href="/magazine">magazine</a></li>
+      </ul>
+    </div>
     <div class="bar-menu hidden">
       <div class="bar-left">
         <div class="bar-img"></div>
       </div>
       <div class="bar-right">
-        <a href="">Shop</a>
-        <a href="">Community</a>
-        <a href="">Brand Story</a>
-        <a href="">Review</a>
-        <a href="">Q & A</a>
+        <a href="/product">Shop</a>
+        <a href="/board">Community</a>
+        <a href="/magazine">Magazine</a>
+        <a href="#">Q & a</a>
+        <a href="/login">Login</a>
         <div>
           <i class="fa-solid fa-magnifying-glass"></i>
           <input type="text" placeholder="Search" />
@@ -67,14 +75,14 @@
       <div class="cart-left">
         <div class="cart-left-title">YOU MAY LIKE</div>
         <div class="cart-left-box">
-          <div class="cart-left-photo"></div>
-          <p>상품이름</p>
-          <p>가격</p>
+          <div class="cart-left-photo1"></div>
+          <p>소품 인테리어 큐브 캔들</p>
+          <p>24,000원</p>
         </div>
         <div class="cart-left-box">
-          <div class="cart-left-photo"></div>
-          <p>상품이름</p>
-          <p>가격</p>
+          <div class="cart-left-photo2"></div>
+          <p>감성 무드등</p>
+          <p>41,000원</p>
         </div>
       </div>
       <div class="cart-right">
@@ -82,11 +90,29 @@
           CART
           <i class="fa-solid fa-xmark"></i>
         </div>
-        <div class="cart-right-box"></div>
-        <div class="cart-right-box"></div>
-        <div class="cart-right-continue">
-          <p><span>C</span>ONTINUE YOUR ORDER</p>
+        <div class="cart-right-box">
+          <div class="right_box_img">
+            <img src="img/item/happyItem10.png" alt="" />
+          </div>
+          <div class="right_box_text">
+            <p>포근한 차렵이불</p>
+            <p>38,000원</p>
+          </div>
         </div>
+        <div class="cart-right-box">
+          <div class="right_box_img">
+            <img src="img/item/recommendItem9.png" alt="" />
+          </div>
+          <div class="right_box_text">
+            <p>크리스마스 포스터</p>
+            <p>12,000원</p>
+          </div>
+        </div>
+        <a href="/myPage">
+          <div class="cart-right-continue">
+            <p><span>C</span>ONTINUE YOUR ORDER</p>
+          </div>
+        </a>
       </div>
     </div>
     <!-- 헤더 끝 -->
@@ -589,6 +615,7 @@
       <!-- 푸터끝 -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./js/common.js"></script>
     <script src="./js/board.js"></script>
   </body>
 </html>

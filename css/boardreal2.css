@@ -667,11 +667,13 @@ header {
   height: 0;
   background-color: white;
   transition: all 0.5s;
+  border-bottom: 0px solid #fbf9f7;
+  border-left: 0px solid transparent;
 }
 
 .box:hover::after {
-  border-bottom: 80px solid #fbf9f7;
-  border-left: 80px solid transparent;
+  border-bottom-width: 80px;
+  border-left-width: 80px;
 }
 .box::before {
   content: "";
@@ -682,7 +684,6 @@ header {
   height: 0;
   background-color: white;
   transition: all 0.5s;
-  box-shadow: 0px 0px 0px rgb(255, 255, 255);
 }
 .box:hover::before {
   border-bottom: 80px solid transparent;

@@ -11,6 +11,7 @@ https://baepippi.github.io/finalProject/boardreal.html
 
 <p align="justify">
 감정소비(스트레스 해소를 위해 소비하는 것)를 경험한 사람들이 많다는 기사를 보고 감정소비를 위한 사이트를 만들어보고자 했습니다.
+<br>
 이용자 간에 감정을 공유할 수 있는 커뮤니티를 만들어 커뮤니티 커머스로 제작해보았습니다.
 </p>
 
@@ -55,7 +56,9 @@ https://baepippi.github.io/finalProject/boardreal.html
 
 <p align="justify">
 차후에 백엔드 쪽을 공부해서 실제로 글을 수정, 게시까지 가능하도록 구현하고싶은..(작은 소망)
+<br>
 사이트의 정체성이 모호하다는 피드백이 있어 커뮤니티페이지가 우선이 되도록 사이트를 바꿔볼 예정
+<br>
 이 디자인으로 일기 어플을 만들어달라는 요청이 있어 애플리케이션 개발 학습할 예정.
 </p>
 
